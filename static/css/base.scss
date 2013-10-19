@@ -57,9 +57,9 @@ h1 {
   color: white;
 }
 
-h2,
-h3 {
+h2 {
   font-family: $font;
+  font-weight: 300;
   margin: 1em 30px 0.5em;
   text-align: center;
 }
@@ -177,6 +177,15 @@ section {
   margin: 5%;
   background: #fafafa;
   border: 1px solid #eee;
+
+  &:nth-child(1) {
+    margin-top: 2em;
+  }
+}
+
+
+p {
+  padding: 0 0.72em;
 }
 
 
@@ -239,6 +248,9 @@ footer {
 
   section, ul#acs {
     margin: 0 2% 2em;
+    &:nth-child(1) {
+      margin-top: 2em;
+    }
   }
 
   section#rooster {

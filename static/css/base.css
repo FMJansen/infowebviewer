@@ -28,9 +28,9 @@ h1 {
   text-align: center;
   color: white; }
 
-h2,
-h3 {
+h2 {
   font-family: "Source Sans Pro", sans-serif;
+  font-weight: 300;
   margin: 1em 30px 0.5em;
   text-align: center; }
 
@@ -121,6 +121,11 @@ section {
   margin: 5%;
   background: #fafafa;
   border: 1px solid #eeeeee; }
+  section:nth-child(1) {
+    margin-top: 2em; }
+
+p {
+  padding: 0 0.72em; }
 
 pre {
   font-family: "Source Sans Pro", sans-serif;
@@ -163,6 +168,8 @@ footer {
 
   section, ul#acs {
     margin: 0 2% 2em; }
+    section:nth-child(1), ul#acs:nth-child(1) {
+      margin-top: 2em; }
 
   section#rooster {
     width: 96%;

@@ -8,6 +8,11 @@
 
 {% block page %}
   <div id="content">
+    <div id="searchname">
+      <input type="text" placeholder="Vind een rooster..." id="search">
+    </div>
+    <ul id="acs"></ul>
+
     <section>
       <h2>Aanpassingen</h2>
       <p id="changes">
@@ -16,7 +21,7 @@
     </section>
 
     <section id="rooster">
-      <h2>Rooster</h2>
+      <h2>Rooster van {{ h2 }}</h2>
       {{ rooster|safe }}
     </section>
   </div>

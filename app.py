@@ -27,6 +27,15 @@ def index():
     title = 'Rooster Cygnus'
     return render_template('index.html', title=title, week=week)
 
+
+@app.route('/over/')
+def over():
+    week = str(datetime.date.today().isocalendar()[1])
+    title = 'Over - Infowebviewer'
+
+    return render_template('over.html', week=week, title=title)
+
+
 @app.route('/<int:week>/<ref>/<id_user>/')
 def rooster(ref,id_user,week):
     bs4_element = get_rooster(ref,id_user,week)
@@ -38,9 +47,13 @@ def rooster(ref,id_user,week):
     for pre in changes_list:
         changes = changes + str(pre)
 
-    title = 'Rooster - Infowebviewer'
+    result = User.query.filter_by(llnr=id_user).first()
+    title = 'Rooster van {0} - Infowebviewer'.format(result.name)
 
-    return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes)
+    h2 = '{0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+
+    return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+
 
 @app.route('/fetch/', methods=['POST'])
 def fetch():
