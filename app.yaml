@@ -1,0 +1,28 @@
+Modifyapplication: infowebviewer
+version: 0.1
+runtime: python3
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /static
+  static_dir: static
+
+- url: /.*
+  script: app.application
+
+libraries:
+- name: datetime
+  version: latest
+- name: requests
+  version: latest
+- name: re
+  version: latest
+- name: sqlalchemy
+  version: latest
+- name: bs4
+  version: latest
+- name: flask
+  version: latest
+- name: jinja2
+  version: latest
