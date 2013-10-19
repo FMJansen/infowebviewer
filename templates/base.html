@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>{{ title }}</title>
+    <meta name="description" content="Een viewer voor het rooster van het Cygnus Gymnasium.">
+    <meta name="author" content="Floris Jansen">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="charset" content="utf-8">
+
+    <link rel="shortcut icon" href="/static/favicon.png">
+
+    <link rel="stylesheet" href="/static/css/base.css">
+
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/scripts.js"></script>
+    <script>
+      var weeknummer = {{ week }};
+    </script>
+
+    {% block head %}
+    {% endblock %}
+
+  </head>
+  <body>
+
+    <header id="main">
+      <div id="menuopener">
+        <select id="menu">
+          <option selected>Ga naar:</option>
+          <option value="/">Roosters</option>
+          <option value="/over/">Over</option>
+        </select>
+      </div>
+      <h1>
+        <a href="/">Rooster Cygnus</a>
+      </h1>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Roosters</a>
+          </li>
+          <li>
+            <a href="/over/">Over</a>
+          </li>
+        </ul>
+        <span>Weeknummer: </span>
+        <input type="number" min="1" max="53" name="week" placeholder="Weeknummer" value="{{ week }}">
+      </nav>
+    </header>
+
+    <div id="page">
+      <div id="searchname">
+        <input type="text" placeholder="Vind een rooster..." id="search">
+      </div>
+      <ul id="acs"></ul>
+
+      {% block page %}
+      {% endblock %}
+    </div>
+
+    <footer>
+      <p><a href="http://fmjansen.nl/">FMJansen.nl</a></p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,253 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400);
+
+/*VARS*/
+$font: 'Source Sans Pro', sans-serif;
+$pagewidth: 1000px;
+
+$maincolor: #013D7D;
+
+
+/*MIXINS*/
+@mixin prefixify($style, $content...) {
+          #{$style}: $content;
+       -o-#{$style}: $content;
+      -ms-#{$style}: $content;
+     -moz-#{$style}: $content;
+  -webkit-#{$style}: $content;
+}
+
+@mixin transition($property, $duration: 200ms) {
+          transition: $property $duration ease-in-out;
+       -o-transition: $property $duration ease-in-out;
+      -ms-transition: $property $duration ease-in-out;
+     -moz-transition: $property $duration ease-in-out;
+  -webkit-transition: $property $duration ease-in-out;
+}
+
+
+/*HTML, BODY, :selection*/
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 4em 0 0;
+  font-family: $font;
+  background: #f5f5f5;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: $maincolor;
+  color: #fff;
+}
+::-moz-selection {
+  background: $maincolor;
+  color: #fff;
+}
+
+
+/*BASIC ELEMENTS*/
+h1 {
+  font-family: $font;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+}
+
+h2,
+h3 {
+  font-family: $font;
+  margin: 1em 30px 0.5em;
+  text-align: center;
+}
+
+
+a {
+  color: $maincolor;
+  text-decoration: none;
+
+  &:visited {
+    color: darken($maincolor, 10%);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+input, button {
+  padding: 0.6em;
+  border: 1px solid #eee;
+  background: #fafafa;
+  font-family: $font;
+  font-size: 1.2em;
+}
+
+
+/*HEADER, NAV*/
+header#main {
+  background: $maincolor;
+  z-index: 3;
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  h1 {
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 0.5em 0 0;
+    float: left;
+
+    a:link, a:visited {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    display: none;
+  }
+
+  div#menuopener {
+    width: 3.4em;
+    height: 3.4em;
+    float: left;
+    display: block;
+    overflow: hidden;
+    background: url(/static/img/menuicon.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
+    select {
+      opacity: 0;
+      width: 20%;
+      @include prefixify(transform, scale(4));
+    }
+  }
+
+  span {
+    display: block;
+    float: left;
+    padding: 1.4em;
+    color: transparentize(white, 0.3);
+  }
+
+  input[type=number] {
+    margin: 0.5em 0;
+    border: 0;
+  }
+}
+
+
+/*AUTOCOMPLETION*/
+input#search {
+  margin: 2em 5% 0;
+  width: 90%;
+  @include prefixify(box-sizing, border-box);
+}
+
+ul#acs {
+  margin: 0 5% 1em;
+  padding: 0;
+  list-style: none;
+
+  li {
+    border: 1px solid #eee;
+    background: #fafafa;
+    border-top: none;
+
+    a {
+      font-size: 1.2em;
+      padding: 0.7em;
+      display: block;
+    }
+
+    &.selected a {
+      background: transparentize(lighten($maincolor, 20%), 0.9);
+    }
+  }
+}
+
+
+section {
+  margin: 5%;
+  background: #fafafa;
+  border: 1px solid #eee;
+}
+
+
+pre {
+  font-family: $font;
+  padding: 0 0.72em;
+  white-space: normal;
+}
+
+
+/*ROOSTER*/
+section#rooster {
+  width: 90%;
+  overflow: visible;
+  overflow-x: scroll;
+}
+
+table {
+  width: 100%;
+}
+
+
+footer {
+  text-align: center;
+}
+
+@media (min-width: 700px) {
+  input#search {
+    margin: 2em 2% 0;
+    width: 96%;
+  }
+
+  header#main {
+    h1 {
+      margin: 0.7em;
+    }
+
+    ul {
+      display: block;
+      float: left;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        float: left;
+
+        a {
+          display: block;
+          padding: 1.4em;
+          color: white;
+        }
+      }
+    }
+
+    div#menuopener {
+      display: none;
+    }
+  }
+
+  section, ul#acs {
+    margin: 0 2% 2em;
+  }
+
+  section#rooster {
+    width: 96%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: auto;
+    margin: auto;
+  }
+}

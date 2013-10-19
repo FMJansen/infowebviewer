@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block head %}
+{% endblock %}
+
+{% block bodyclass %}
+{% endblock %}
+
+{% block page %}
+  <div id="content">
+    <section>
+      <h2>Aanpassingen</h2>
+      <p id="changes">
+        {{ changes|safe }}
+      </p>
+    </section>
+
+    <section id="rooster">
+      <h2>Rooster</h2>
+      {{ rooster|safe }}
+    </section>
+  </div>
+{% endblock %}

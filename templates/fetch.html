@@ -1,0 +1,5 @@
+{% for user in users %}
+  <li>
+    <a href="{{ user.href }}">{{ user.name|safe }}</a>
+  </li>
+{% endfor %}
