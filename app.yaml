@@ -1,4 +1,4 @@
-Modifyapplication: infowebviewer
+application: infowebviewer
 version: 0.1
 runtime: python3
 api_version: 1
