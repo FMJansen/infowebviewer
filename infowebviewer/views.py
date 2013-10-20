@@ -7,6 +7,9 @@ from sqlalchemy import or_
 from bs4 import BeautifulSoup
 from models import User, db
 
+app = Flask('infowebviewer')
+app.config.from_object('infowebviewer.settings')
+
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
 def get_rooster(ref,id_user,week):
