@@ -12,8 +12,6 @@ handlers:
   script: app.application
 
 libraries:
-- name: datetime
-  version: latest
 - name: requests
   version: latest
 - name: re
