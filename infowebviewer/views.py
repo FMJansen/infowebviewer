@@ -1,6 +1,6 @@
 import datetime
 import re
-from reqests import cookies
+from requests import cookies
 from flask import Flask, render_template, request
 from flask.ext.sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
