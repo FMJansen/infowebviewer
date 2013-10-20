@@ -2,7 +2,7 @@ import datetime
 import re
 from requests import cookies
 from flask import Flask, render_template, request
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 from bs4 import BeautifulSoup
 from models import User, db
