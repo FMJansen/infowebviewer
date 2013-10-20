@@ -8,7 +8,6 @@ from bs4 import BeautifulSoup
 from models import User, db
 
 app = Flask('infowebviewer')
-app.config.from_object('infowebviewer.settings')
 
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
@@ -77,3 +76,7 @@ def fetch():
         users.append({ 'name': link_name, 'href': href })
 
     return render_template('fetch.html', users=users)
+
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host='0.0.0.0')
