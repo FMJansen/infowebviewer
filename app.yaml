@@ -9,7 +9,7 @@ handlers:
   static_dir: static
 
 - url: /.*
-  script: app.application
+  script: app.py
 
 libraries:
 - name: jinja2
