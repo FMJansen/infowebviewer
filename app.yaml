@@ -8,9 +8,11 @@ handlers:
 - url: /static
   static_dir: static
 
-- url: /.*
+- url: .*
   script: app.py
 
 libraries:
 - name: jinja2
+  version: latest
+- name: re
   version: latest
