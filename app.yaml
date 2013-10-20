@@ -12,15 +12,5 @@ handlers:
   script: app.application
 
 libraries:
-- name: requests
-  version: latest
-- name: re
-  version: latest
-- name: sqlalchemy
-  version: latest
-- name: bs4
-  version: latest
-- name: flask
-  version: latest
 - name: jinja2
   version: latest
