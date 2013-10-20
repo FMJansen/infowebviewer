@@ -1,6 +1,6 @@
 application: infowebviewer
 version: 0-1
-runtime: python3
+runtime: python27
 api_version: 1
 threadsafe: true
 
