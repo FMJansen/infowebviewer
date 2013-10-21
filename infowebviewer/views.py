@@ -6,8 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import or_
 from bs4 import BeautifulSoup
 from models import User, db
-
-app = Flask('infowebviewer')
+from infowebviewer import app
 
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
