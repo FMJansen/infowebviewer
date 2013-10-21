@@ -1,4 +1,4 @@
-application: infowebviewer
+application: e~infowebviewer
 version: 0-1
 runtime: python27
 api_version: 1
@@ -14,3 +14,6 @@ handlers:
 libraries:
 - name: jinja2
   version: latest
+
+builtins:
+- remote_api: on
