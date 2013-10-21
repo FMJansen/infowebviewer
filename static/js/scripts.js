@@ -31,6 +31,8 @@ function fetchRoosters(searchInput) {
 
 $(document).ready(function() {
 
+  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com!');
+
   $('select#menu').change(function() {
     window.location = $(this).find('option:selected').val();
   });
@@ -60,7 +62,12 @@ $(document).ready(function() {
       }
 
     } else if(e.keyCode === 13) { //enter
-      window.location = $('ul#acs .selected a').attr('href');
+      var selectedHref = $('ul#acs .selected a').attr('href');
+      if(selectedHref != undefined) {
+        window.location = selectedHref;
+      } else {
+        alert('Er waren geen resultaten en je gaat dus nu nergens heen.');
+      }
 
     } else {
       fetchRoosters(searchInput);
