@@ -88,9 +88,10 @@ header#main {
     float: left;
     padding: 1.4em;
     color: rgba(255, 255, 255, 0.7); }
-  header#main input[type=number] {
+  header#main input[type=number], header#main button {
     margin: 0.5em 0;
-    border: 0; }
+    border: 0;
+    float: left; }
 
 /*AUTOCOMPLETION*/
 input#search {
@@ -140,6 +141,25 @@ section#rooster {
 
 table {
   width: 100%; }
+
+.top, .left {
+  background: #f5f5f5;
+  padding: 0 0.5em; }
+
+.top {
+  padding: 0.5em 0; }
+
+.vervallen {
+  background: rgba(255, 0, 0, 0.4); }
+
+.vrij {
+  background: #f0f0f0; }
+
+.wijziging {
+  background: url(/static/img/wijziging.gif) no-repeat; }
+
+.informatie {
+  background: url(/static/img/informatie.gif) no-repeat; }
 
 footer {
   text-align: center; }

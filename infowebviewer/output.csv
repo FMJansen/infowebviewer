@@ -1,0 +1,753 @@
+ref,llnr,name,group
+2,102569,Sofyan Aarrass,CG1A
+2,102814,Casper Baehr,CG1A
+2,102712,Sterre Beugels,CG1A
+2,102883,Elise Blad,CG1A
+2,102691,Thomas Boers,CG1A
+2,102794,Dries Braun,CG1A
+2,102876,Leya Broekman,CG1A
+2,102897,Joram de Haas,CG1A
+2,102570,Chris van den Heuvel,CG1A
+2,102512,Abdulkadir Inan,CG1A
+2,102777,Malik Ismail,CG1A
+2,102518,Noa Kluiters,CG1A
+2,102805,Daphne Kolenberg,CG1A
+2,102571,Maartje van der Lei,CG1A
+2,102912,Milan Milan,CG1A
+2,102892,Sophie Otten,CG1A
+2,102916,Karlijn Overdijkink,CG1A
+2,103082,Sarah Prins,CG1A
+2,102900,Leandro Santori,CG1A
+2,102567,Miekje Schwippert,CG1A
+2,102634,Maas Sorko,CG1A
+2,102879,Jesse Sprenger,CG1A
+2,102880,Vincent Sprenger,CG1A
+2,102539,Lena Tulner,CG1A
+2,103059,Simone van der Velde,CG1A
+2,102885,Daan Woldring,CG1A
+2,102761,Marcus Çakmak,CG1A
+2,102520,Mohamed Ahmed,CG1B
+2,102620,Suleyman Ali,CG1B
+2,102714,Saaly Alsaadi,CG1B
+2,102891,Liselotte Beemster,CG1B
+2,102870,Sara van den Broek,CG1B
+2,102538,Merlijn de Bruin,CG1B
+2,103053,Vinny Devriesere,CG1B
+2,102510,Kenan Dilber,CG1B
+2,102894,Benjamin Duncan,CG1B
+2,102696,Lieke Hoorn,CG1B
+2,102871,Sophie Hudson,CG1B
+2,103162,Fedde Jorritsma,CG1B
+2,102882,Lefman Kan,CG1B
+2,102922,Anne Kooijenga,CG1B
+2,102711,Joghem van Loghem,CG1B
+2,102739,Thirza Lont,CG1B
+2,102743,Arvid Mikkers,CG1B
+2,102768,Mijntje Moll,CG1B
+2,102802,Arend Mookhoek,CG1B
+2,102898,Femi Niemeijer,CG1B
+2,102901,Merlijne Ott,CG1B
+2,102573,Oscar van der Ploeg,CG1B
+2,102887,Vera Reits,CG1B
+2,102787,Ian de Ronde,CG1B
+2,102908,Thijn Swinkels,CG1B
+2,102895,Sven Wels,CG1B
+2,102515,Marius van Wijk,CG1B
+2,102907,Jona Wolff,CG1B
+2,102920,Isa Baas,CG1C
+2,102888,Lotta Baten,CG1C
+2,102715,Salaheddine Benzirar,CG1C
+2,102568,Sierra Bloem,CG1C
+2,102936,Phyne Booy,CG1C
+2,103057,Desaï Breeveld,CG1C
+2,103085,David Cairo,CG1C
+2,102517,Pelle Drijver,CG1C
+2,102543,Jesse Freriks,CG1C
+2,102541,Nikki Fronczek,CG1C
+2,102710,Pablo Henneman,CG1C
+2,102703,Jihad el Hour,CG1C
+2,102667,Merlijn Hutter,CG1C
+2,102511,Miekaa-Iel Imamdi,CG1C
+2,102707,Meike Klunder,CG1C
+2,102889,Halima Korkmaz,CG1C
+2,102645,Floris van der Linden,CG1C
+2,102910,Imane Maymoun,CG1C
+2,102875,Isa Monkau,CG1C
+2,102868,Tristan de Muijnck,CG1C
+2,102455,Mirthe Nooitmeer,CG1C
+2,103081,Tinus Pauw,CG1C
+2,102921,Daniël Roeffel,CG1C
+2,103083,Flint Sandfort,CG1C
+2,102453,Omar el Sayed Hossein,CG1C
+2,102811,Branco Sieljes,CG1C
+2,102873,Susanne van Spijker,CG1C
+2,102692,Lucas Witte,CG1C
+2,102544,Nuri Abdoelrahman,CG1D
+2,102911,Fettah El Bardai,CG1D
+2,102884,Peer van Bemmelen,CG1D
+2,102797,Renèe van Embden,CG1D
+2,102813,Ayoub Haddad,CG1D
+2,102690,Koen Hoeberechts,CG1D
+2,102635,Elisabeth Hoekstra,CG1D
+2,103061,Donja de Jong,CG1D
+2,102874,Sascha Kolthof,CG1D
+2,102909,Elja Mantel,CG1D
+2,102574,Madelief Van Meggelen,CG1D
+2,102646,Puck Melk,CG1D
+2,102919,Amber Netten,CG1D
+2,103079,Angelique Nidhansing,CG1D
+2,103080,Moos Nijssen,CG1D
+2,102806,Storm Rooze,CG1D
+2,102872,Kick de Ruig,CG1D
+2,102918,Veronia Said,CG1D
+2,102878,Daniël Schierenberg,CG1D
+2,102639,Saar Schnieders,CG1D
+2,103052,Mia Cecille van Stiphout,CG1D
+2,102881,Patrick Szabó,CG1D
+2,102906,Boris te Velde,CG1D
+2,102812,Raven Waijjen,CG1D
+2,102637,Dario Westerouen van Meeteren,CG1D
+2,102638,Odin Zuijderland,CG1D
+2,102741,Feodor Zyblev,CG1D
+2,102642,Yassine Azzafzafi,CG1E
+2,102766,Sterre Beekhoven,CG1E
+2,102633,Kasper van den Berg,CG1E
+2,103055,Luna Berghegen,CG1E
+2,102671,Dyaro Bergkamp,CG1E
+2,102546,Aphrodite Cival,CG1E
+2,102640,Ties Dankaart,CG1E
+2,102762,Hermelijn van Diggelen,CG1E
+2,102641,Annabelle Drabbe,CG1E
+2,102514,Myrthe Harlaar,CG1E
+2,102740,Vita Hooglandt,CG1E
+2,102913,Nina Hoorn,CG1E
+2,102443,Kelvin Kwaku Okyere,CG1E
+2,102899,Joost Litjes,CG1E
+2,102513,Cile van Marken,CG1E
+2,102540,Ran Mashiach,CG1E
+2,103078,Tarik Meijer,CG1E
+2,102763,Quinten Moonen,CG1E
+2,102636,Lou Neuhaus,CG1E
+2,102809,Ezra Pleij,CG1E
+2,102896,Ruben van Reijen,CG1E
+2,102902,Chaimae Semali,CG1E
+2,102810,Max Speek,CG1E
+2,102435,Mahmoud El Tabbal,CG1E
+2,102521,Liang Telkamp,CG1E
+2,102759,Tijn Vernooij,CG1E
+2,102572,Timo Vleerbos,CG1E
+2,103084,Leonoor van Vliet,CG1E
+2,103056,Xavier van Boelenhoven,CG1F
+2,102886,Maartje Eggen,CG1F
+2,102764,Bo van Engelen,CG1F
+2,102771,Rosali Fitz,CG1F
+2,102890,Mec Glandroff,CG1F
+2,103060,Semen Gormuzov,CG1F
+2,102869,Ronen Hofmann,CG1F
+2,102877,Tim Janbroers,CG1F
+2,102631,Lukas Jansen,CG1F
+2,102663,Nasreddine Khallouki,CG1F
+2,103062,Veerle Korsten,CG1F
+2,102706,Sem Lamers,CG1F
+2,102519,Nadir EL Mouhidi,CG1F
+2,102796,Sisko van Munster,CG1F
+2,102915,Wietske Overdijkink,CG1F
+2,102905,Sanjana Ramdjiawan,CG1F
+2,102545,Ian Ronk,CG1F
+2,102893,Rachid Sam-Sin,CG1F
+2,102789,Anna Schrofer,CG1F
+2,102903,Loe Selders,CG1F
+2,102742,Sam Soest,CG1F
+2,102713,Emma Stutterheim,CG1F
+2,103058,Floris van Uden,CG1F
+2,102785,Jara Van Der Westen,CG1F
+2,102775,Tobias Westerveld,CG1F
+2,102904,Berend Zuidberg,CG1F
+2,101775,Kolja Apontoweil,CG2A
+2,101963,Jacguy Chellit,CG2A
+2,102148,Agnes Ende van den,CG2A
+2,101278,Emma Ganzevoort,CG2A
+2,102118,Robin Geijsel,CG2A
+2,102200,Sterre Gesbert,CG2A
+2,102151,Roman Gool van,CG2A
+2,102115,Zeno Gorgels,CG2A
+2,101840,Max Hoedt Ten,CG2A
+2,102061,Marijn Huijers,CG2A
+2,101930,Adnan Husain Cornelissen,CG2A
+2,101833,Suzanne Imming,CG2A
+2,102207,Lily Laar van de,CG2A
+2,101966,Ebbe Langenberg,CG2A
+2,101972,Ella Loenen van,CG2A
+2,102146,Tahira Mohammad,CG2A
+2,101828,Afaan Muhammad,CG2A
+2,102076,Isa Nienhaus,CG2A
+2,101951,Midas Ploem Kempkes,CG2A
+2,102155,Rabdaah Rehman,CG2A
+2,102181,Raphaël Remkes,CG2A
+2,102132,Mees Scheffer,CG2A
+2,102031,Milan Stork,CG2A
+2,101965,Susanna Tdlohreg,CG2A
+2,101152,Eva Vlasblom,CG2A
+2,102206,Robin Woude van der,CG2A
+2,102112,Femke Ypenga,CG2A
+2,101907,Basim Abdelbaki,CG2B
+2,101918,Max Balvers,CG2B
+2,101952,Jasper Beek te,CG2B
+2,101826,Mila Bult,CG2B
+2,102171,Dennis Cordes,CG2B
+2,101257,Zola Delft Van,CG2B
+2,102057,Pim Duchhart,CG2B
+2,102209,Alexander Ferdinandus,CG2B
+2,101823,Merijn Grevengoed van,CG2B
+2,101947,Lex Groot de,CG2B
+2,101841,Alexander Hiebsch,CG2B
+2,101125,Daniël Hofkes,CG2B
+2,101824,Haidy Hosny Abd-Alla,CG2B
+2,101837,Marloes IJlst,CG2B
+2,101827,Dionisia Jones,CG2B
+2,102162,Rutger Kool,CG2B
+2,101935,Tijn Loos,CG2B
+2,102053,Tessa Luntz,CG2B
+2,101916,Caitlin Maartens,CG2B
+2,102123,Mariam Nasr,CG2B
+2,102179,Elias Reina,CG2B
+2,101931,Tom Riessen van,CG2B
+2,101287,Tobias Rooij de,CG2B
+2,102149,David Steinfort,CG2B
+2,102127,Jan Stolwyk,CG2B
+2,101845,Etienne Varossieau,CG2B
+2,102204,Gina Verhagen,CG2B
+2,102199,Marije Zijlstra,CG2B
+2,101832,Ilse Zonneveld,CG2B
+2,101881,Lotte Zonneveld,CG2B
+2,101838,Dominic Borkelmans,CG2C
+2,101839,Toon Brouwer,CG2C
+2,102081,Florine Cock de,CG2C
+2,101822,Friso Contrera Arias,CG2C
+2,101771,Bas Cornelissen,CG2C
+2,101934,Hannah Doel van den,CG2C
+2,102121,Dylan Effah,CG2C
+2,102147,Fée Elders,CG2C
+2,102073,Max Groenveld,CG2C
+2,101924,Marike Gruijters,CG2C
+2,101946,Daan Gözüm,CG2C
+2,102208,Camile Harmelen van,CG2C
+2,102173,Job Kemperman,CG2C
+2,102055,Li Ming Kho,CG2C
+2,101902,Sophie Knapen,CG2C
+2,101939,Tijmen Massier,CG2C
+2,101825,Souf Melad,CG2C
+2,101944,Arun Mulder,CG2C
+2,102177,Raquil Ogenia,CG2C
+2,101836,Jules Pellegrom,CG2C
+2,101772,Bram Reedijk,CG2C
+2,102085,Sven Ronde de,CG2C
+2,102170,Beer Saatrübe,CG2C
+2,101786,Kristy Sahit,CG2C
+2,101911,Gabriël Sluis van den,CG2C
+2,102110,Khady Sow,CG2C
+2,102158,Marit Thoen,CG2C
+2,101922,Henry Wan,CG2C
+2,102180,Mädchen Wolff,CG2C
+2,102183,Saartje Wurff Van der,CG2C
+2,102156,Ruben Abrahamse,CG2D
+2,101843,Timy Andrawes,CG2D
+2,102202,Ischa Bemmelen van,CG2D
+2,102198,Nouna Chelbi,CG2D
+2,101646,Jules Declerieux,CG2D
+2,101950,Lies Ekker,CG2D
+2,101830,Pim Gimbergh,CG2D
+2,102106,Elisa Groenewoud van het,CG2D
+2,102159,Francesca Hobrecker,CG2D
+2,102157,Jip Hoekstra,CG2D
+2,102142,Amine Ismail,CG2D
+2,102134,Omar Ismail,CG2D
+2,101831,Ares Kok,CG2D
+2,101647,Tobias Lancel,CG2D
+2,102197,Hidde Majoor,CG2D
+2,101906,Mira Mioch,CG2D
+2,101266,Leeuw Moerkerken van,CG2D
+2,101844,Dmitry Ouss,CG2D
+2,102168,Charlotte Pürzel,CG2D
+2,102059,Sophie Rijn van,CG2D
+2,102205,Jacqueline Sarpong,CG2D
+2,101784,Noor Schrofer,CG2D
+2,101941,Merlijn Sindram,CG2D
+2,101964,Caio Smidi,CG2D
+2,102033,Melle Stol,CG2D
+2,101932,Ahmed Taha,CG2D
+2,101829,Hillebrand Thijs,CG2D
+2,102203,Job Vlak,CG2D
+2,101834,Camille Vliet van,CG2D
+2,101967,Raul Wolters,CG2D
+2,100973,Mohamed Akhayad,CG3A
+2,101053,Racquelle Biezen,CG3A
+2,101338,Merlijn Bilderbeek van,CG3A
+2,101284,Cato Boer de,CG3A
+2,101206,Sam Borgt,CG3A
+2,101253,Noah Elders,CG3A
+2,100933,Nada Elhendy,CG3A
+2,101305,Aafke Essen,CG3A
+2,100634,Artemy Evdokimov,CG3A
+2,101044,Anouk Gielen,CG3A
+2,101208,Allard Graaf de,CG3A
+2,101339,Jeroen Hekkelman,CG3A
+2,101213,Isabella Hofmans,CG3A
+2,100945,Joshua Krafft,CG3A
+2,101336,Sacha Matola,CG3A
+2,100946,Mujtaba Najim,CG3A
+2,101262,Rover Noort van der,CG3A
+2,101051,Shanaih Ricardo,CG3A
+2,101149,Igor Rosenberg von,CG3A
+2,100948,Quardell Verbond,CG3A
+2,101252,Rebecca Vogler,CG3A
+2,101135,Nienke Vos,CG3A
+2,101249,Sam Wester,CG3A
+2,100944,Bram Woerdt van der,CG3A
+2,101123,Timon Adriaanssen,CG3B
+2,101276,Zora Berg van den,CG3B
+2,101272,Fenna Bogaard van den,CG3B
+2,101328,Frank Brongers,CG3B
+2,101192,Bruno Burkhardt,CG3B
+2,100313,Laura Duif,CG3B
+2,101200,Floor Eijkelboom,CG3B
+2,101259,Anna Harmelen van,CG3B
+2,100595,Josha Kanne,CG3B
+2,101157,Emma Karlas,CG3B
+2,100821,Fatma Kaya,CG3B
+2,101194,Robin Korink,CG3B
+2,101332,Wisse Kuijten,CG3B
+2,101039,Lucian Menkveld,CG3B
+2,101122,Arabella Meyer,CG3B
+2,101261,Beer Neyssen,CG3B
+2,101133,Jim Ploeg van der,CG3B
+2,101275,Daan Robberse,CG3B
+2,101226,Kaj Ruppert,CG3B
+2,101050,Laszlo Schoonheid,CG3B
+2,101251,Willemien Schouten,CG3B
+2,101268,Milan Simsek,CG3B
+2,101118,Gijs Smeets,CG3B
+2,101211,Isabel Souwer,CG3B
+2,101130,Gijs Voskes,CG3B
+2,101129,Ruerdje Voskes,CG3B
+2,101357,Katharina Wahedi,CG3B
+2,101264,Hazel Waijjen van,CG3B
+2,101250,Renzo Westerbeek,CG3B
+2,102184,Job Andringa,CG3C
+2,101199,Shanti Baudoin,CG3C
+2,101359,Luca Bonsangue,CG3C
+2,101356,Liam Bot,CG3C
+2,101235,Simon Brans,CG3C
+2,101229,Susan Broek van den,CG3C
+2,101216,Felix Broese van Groenou,CG3C
+2,101228,Badr Chaoui,CG3C
+2,101046,Lisanne Dijk van,CG3C
+2,101210,Sammy Frenkel,CG3C
+2,101167,Joost Gelder van,CG3C
+2,101214,Susanne Gooijer,CG3C
+2,100999,Brian Groothuesheidkamp,CG3C
+2,101190,Rik Hoekstra,CG3C
+2,101248,Claire Hoogenboom,CG3C
+2,101127,Adil Islam,CG3C
+2,101282,Nina Liem,CG3C
+2,101342,Esther Maarsman,CG3C
+2,101224,Ruben Peeters,CG3C
+2,101147,Birgit Peters,CG3C
+2,101627,Nicolet Posthuma,CG3C
+2,101148,Ishana Raghoebardajal,CG3C
+2,101258,Tomas Resink,CG3C
+2,101286,Isa Seegers,CG3C
+2,101119,Jane Stuhlmacher,CG3C
+2,101150,Sam Titarsolej,CG3C
+2,101223,Roeland Vos,CG3C
+2,101052,Nicky Westen van der,CG3C
+2,101153,Femke Wolff,CG3C
+2,101260,Bas Zwart de,CG3C
+2,101143,Robin Alberts,CG3D
+2,101270,Eline Berg van den,CG3D
+2,101145,Reijer Boodt,CG3D
+2,101354,Noah Claassen,CG3D
+2,101236,Sanne Cox,CG3D
+2,100413,Chinook Felix,CG3D
+2,100472,Abe Ferwerda,CG3D
+2,101038,Louella Hendriksen,CG3D
+2,101352,Max Hopwood,CG3D
+2,101043,Yasser Kalloe,CG3D
+2,101115,Sam Katiraee-far,CG3D
+2,101233,Jorgos Koumasis,CG3D
+2,101132,Rosa Kroon,CG3D
+2,101341,David Plomp,CG3D
+2,101049,Pablo Provence,CG3D
+2,100971,Shivan Ramkhewan,CG3D
+2,100951,Sijmen Rijks,CG3D
+2,101263,Daniël Rutgers,CG3D
+2,101267,Lara Simsek,CG3D
+2,100950,Pijke Steenhuis,CG3D
+2,101269,Veerle Thoen,CG3D
+2,101521,Tessel Vries de,CG3D
+2,101045,Jorn Winkel,CG3D
+2,101160,Amar Zouboye,CG3D
+2,101274,Sarah Ashworth,CG3E
+2,101134,Sacha Beelen van,CG3E
+2,101217,Dorith Blijleven,CG3E
+2,100581,Teun Bongenaar,CG3E
+2,100772,Lara Breedveld,CG3E
+2,100406,Yannick Buijs,CG3E
+2,101165,Samuel Cohn,CG3E
+2,101042,Imre Degenhart,CG3E
+2,101114,Timo Doherty,CG3E
+2,101281,Milo Fordham,CG3E
+2,101265,Janos Ghyczy,CG3E
+2,101202,Tessa Happé,CG3E
+2,101203,Noah Hilhorst,CG3E
+2,100622,Shade Iro-Omo,CG3E
+2,101364,Lala Ismail,CG3E
+2,101164,Hester Klomp,CG3E
+2,101198,Ivo Kroon,CG3E
+2,101126,Rolin Legêne,CG3E
+2,101334,Gustav Miedema,CG3E
+2,101271,Savina Rielová van,CG3E
+2,101168,Paris Soest,CG3E
+2,100585,Nathan Tarenskeen,CG3E
+2,101048,Tjip Telman,CG3E
+2,101171,Juliette Waal de,CG3E
+2,101041,Dorus Weelden van,CG3E
+2,101215,Tommy Wilde de,CG3E
+2,100514,Oumayma Aïssa,CG4A
+2,100812,Olga Berg van den,CG4A
+2,100765,Olivier Capelleveen van,CG4A
+2,100774,Arthur Eeden van,CG4A
+2,100541,Menno Gilhuis,CG4A
+2,100609,Jordi Groenveld,CG4A
+2,100409,Wouter Harst van der,CG4A
+2,100521,Thomas Herder den,CG4A
+2,100320,Daniel Hooglandt,CG4A
+2,100624,Hendrik Huang,CG4A
+2,100610,Jesse Hummen,CG4A
+2,100623,Jonah Jansen,CG4A
+2,100633,Zina Janssen,CG4A
+2,100465,Job Jong de,CG4A
+2,100580,Jolke Jong de,CG4A
+2,100427,Zeynep Kahraman,CG4A
+2,100417,Lukas Kemme,CG4A
+2,100414,Jorke Kooijenga,CG4A
+2,100761,Thomas Laarse van der,CG4A
+2,99369,Dennis Marchena Esteban,CG4A
+2,100533,Marit Mulder,CG4A
+2,100612,Haye Nijhuis,CG4A
+2,100635,Max Noback,CG4A
+2,100763,Tembe Ploem Kempkes,CG4A
+2,100619,Elmer Polman,CG4A
+2,100333,Robin Schatens,CG4A
+2,100426,Eva Schoonings,CG4A
+2,100404,Roza Ybema,CG4A
+2,100425,Jorrit Ypenga,CG4A
+2,100454,Madelief Zwaan,CG4A
+2,100421,Julia Abrahamse,CG4B
+2,100319,Assia Amekran,CG4B
+2,100397,Tijmen Beemster,CG4B
+2,100471,Shirin Bhoep,CG4B
+2,100757,Quinty Dijk van,CG4B
+2,100519,Sjoerd Dingerink,CG4B
+2,100460,Maud Dorsselaer van,CG4B
+2,100520,Badr Fräser,CG4B
+2,100466,Mart Genuchten van,CG4B
+2,100412,Kyo Gerrits,CG4B
+2,100457,Esra Groot de,CG4B
+2,100396,Merel Gulik van,CG4B
+2,100523,Joris Hijden van der,CG4B
+2,100524,Jeroen Holtslag,CG4B
+2,100300,Serena Kleyn,CG4B
+2,100486,Daan Krol,CG4B
+2,100611,Marieke Lindhout,CG4B
+2,100505,Titus Pellegrom,CG4B
+2,100756,Sophie Post,CG4B
+2,100322,Selinde Posthuma,CG4B
+2,100405,Xanna Reddingius,CG4B
+2,100602,Clint Rheenen van,CG4B
+2,100596,Sam Riessen van,CG4B
+2,100407,Julio Smidi,CG4B
+2,100468,Pim Straaten van der,CG4B
+2,100441,Zoe Tuin van der,CG4B
+2,100532,Luka Viool,CG4B
+2,100316,Suzi Vulas,CG4B
+2,100600,Mieke Wessel,CG4B
+2,100777,Caitlin Woltman,CG4B
+2,100485,Lola Abbas,CG4C
+2,100597,Karlijn Andeweg,CG4C
+2,100529,Bram Bakker,CG4C
+2,100403,Jana Dam van,CG4C
+2,100459,Joris Dijk van,CG4C
+2,100531,Rosa Duren van,CG4C
+2,100473,Sytze Ferwerda,CG4C
+2,100480,Felix Fischer,CG4C
+2,100453,Mikk Giesbergen,CG4C
+2,100608,Job Gräber,CG4C
+2,100820,Ida Jorritsma,CG4C
+2,100469,Jesse Nagel,CG4C
+2,100760,Ruben Plet,CG4C
+2,100464,Louise Snel,CG4C
+2,100766,Esther Steenis van,CG4C
+2,100617,Arthur Venrooij van,CG4C
+2,100603,Jelle Voskuijl,CG4C
+2,100416,Kelly Willersen,CG4C
+2,100400,Teun Wolleswinkel,CG4C
+2,100420,Britta Zijm,CG4C
+2,100628,Gadidzja Albogatjiew,CG4D
+2,100419,Jules Appel,CG4D
+2,99801,Jarno Bakker,CG4D
+2,100482,Roby Bitter,CG4D
+2,100773,David Budwilowitz,CG4D
+2,100578,Lukas Busch,CG4D
+2,101566,Mafalda Dissel van,CG4D
+2,100525,Rosa Koopmans,CG4D
+2,100451,David Langkamp,CG4D
+2,100463,Rajiv Manichand,CG4D
+2,100589,Darja Menkveld,CG4D
+2,100528,Amin Ommada,CG4D
+2,100614,Suzanne Reedijk,CG4D
+2,100583,Liza Roelofsen,CG4D
+2,100771,Jaimie Rutgers,CG4D
+2,100620,Estella Sluis van de,CG4D
+2,100615,Ouissal Soultana,CG4D
+2,100484,Emmanuel Stephens,CG4D
+2,100467,Tamara Stoof,CG4D
+2,100616,Kasper Tulder van,CG4D
+2,100477,Yulia Valencia,CG4D
+2,100019,Lieke Andeweg,CG5A
+2,100157,Gijs Andringa,CG5A
+2,100041,Ellen Arler,CG5A
+2,99686,Josse van Bakel,CG5A
+2,100043,Adriana Bibo,CG5A
+2,99847,Jesse de Bruin,CG5A
+2,99353,Mattia Caldarella,CG5A
+2,99733,Chatainya Cruden,CG5A
+2,99945,Merel Dijkhuizen,CG5A
+2,99859,Stefan de Gijsel,CG5A
+2,100032,Johannes van der Heide,CG5A
+2,99778,Liam Helsloot,CG5A
+2,99897,Ava Hoogenboom,CG5A
+2,99777,Emre Kahraman,CG5A
+2,99858,Dezge Kizilkan,CG5A
+2,99804,Luka Kranendonk,CG5A
+2,99853,Tim Lenters,CG5A
+2,100176,Lisanne Meijer,CG5A
+2,99671,Didier Merk,CG5A
+2,99096,Kimberly Nehal,CG5A
+2,99846,Ella Nieuwenhuijzen,CG5A
+2,100165,Demi Rijlaarsdam,CG5A
+2,100028,Tess de Rooij,CG5A
+2,99843,Jelle de Ruiter,CG5A
+2,99036,Romy Steba,CG5A
+2,99397,Bram Vermeulen,CG5A
+2,99849,Simon Wittkamp,CG5A
+2,99883,Simion Becker,CG5B
+2,100159,Julia Davids,CG5B
+2,99690,Rajas Denz,CG5B
+2,99357,Phaedra Haringsma,CG5B
+2,99794,Olaf Heckert,CG5B
+2,99895,Niels Hoefsloot,CG5B
+2,99734,Mashhour Hosny Abd -Alla,CG5B
+2,100182,Jesse Hummel,CG5B
+2,100046,Berend Jansen,CG5B
+2,99382,Baruch Kiestra,CG5B
+2,99374,David Kikkert,CG5B
+2,99881,Josef Levy,CG5B
+2,99914,Erik Mettrop,CG5B
+2,99697,Zynab Mohammad,CG5B
+2,99702,Shaimaa Nasr,CG5B
+2,99101,Sheqouia Nauta,CG5B
+2,99904,Casper van de Sande,CG5B
+2,99766,Leander Schagen,CG5B
+2,99136,Tjebbe Schalij,CG5B
+2,100048,Bram Schoufour,CG5B
+2,99691,Camiel Schreuder,CG5B
+2,99902,Rosa Souwer,CG5B
+2,99995,Mila Sparreboom,CG5B
+2,103174,Brittany Stephenson,CG5B
+2,99679,Florian Varkevisser,CG5B
+2,99837,Maartje de Vos,CG5B
+2,99901,Xante Wilders,CG5B
+2,99842,Nadine Williams,CG5B
+2,99854,Job Wink,CG5B
+2,100027,Aidan Wyber,CG5B
+2,99680,Arian Babori,CG5C
+2,99672,Rana Badawi,CG5C
+2,99674,Siham Bakhlakh,CG5C
+2,99416,Zino Bakker,CG5C
+2,100181,Olivia van Beek,CG5C
+2,100042,Amber Beekman,CG5C
+2,100177,Max Blokker,CG5C
+2,100180,Max Burger,CG5C
+2,99898,David van Gelder,CG5C
+2,99713,Myrthe de Haas,CG5C
+2,99782,Anna van der Heijden,CG5C
+2,99910,Anne Hoekstra,CG5C
+2,100040,Luna Hollander,CG5C
+2,99915,Robert Jansen,CG5C
+2,100162,Clara Keuken,CG5C
+2,99889,Meike Klomp,CG5C
+2,99139,Elena Knol,CG5C
+2,100050,Someyya Kuzu,CG5C
+2,99753,Juliëtte Molenaars,CG5C
+2,99840,Ward van der Putt,CG5C
+2,99872,Morgane Rimar,CG5C
+2,100047,Linde van Schaik,CG5C
+2,101536,Piet Seidenberg,CG5C
+2,99857,Malte Stuhlmacher,CG5C
+2,99748,Tamar Vis,CG5C
+2,99838,Alba van Vliet,CG5C
+2,99401,Bart Wolna,CG5C
+2,100179,Jasper Arendse,CG5D
+2,99408,John Ashworth,CG5D
+2,99745,Ryan Aukes,CG5D
+2,99668,Nada Badawi,CG5D
+2,99795,Nancy de Groot,CG5D
+2,100847,Camilla Henneman,CG5D
+2,100044,Heleen van der Hout,CG5D
+2,99744,Eveline Ilcken,CG5D
+2,100187,Joep Knepper,CG5D
+2,99388,Yassine el Kouazi,CG5D
+2,100035,Yöran Krüse,CG5D
+2,99940,Seppe Kuipers,CG5D
+2,99797,Steinar Laenen,CG5D
+2,100183,Arthur Mclaren,CG5D
+2,99670,Oumaima Mkabri,CG5D
+2,99381,Renée Oldenkamp,CG5D
+2,100037,Elske Paas,CG5D
+2,99415,Aimée Portielje,CG5D
+2,99685,Raveena Ramkisoensingh,CG5D
+2,100185,Jasper Roosmale Nepveu,CG5D
+2,100045,Karin de Rouville,CG5D
+2,99850,Rimke Saan,CG5D
+2,99774,Simone van der Schot,CG5D
+2,99878,Lucy Smeets,CG5D
+2,99800,Sol Titarsolej,CG5D
+2,99871,Jax van Vliet,CG5D
+2,99906,Jutka Vries,CG5D
+2,99905,Marlot Westera,CG5D
+2,100188,Anna Zonneveld,CG5D
+2,99351,Nathan Bontekoning,CG6A
+2,99496,Jacobus Dijkman,CG6A
+2,101565,Fabio van Dissel,CG6A
+2,99499,Max van Eldonk,CG6A
+2,99490,Guido Haenen,CG6A
+2,99359,Martin van Harmelen,CG6A
+2,99360,Jochem van den Hoek,CG6A
+2,99141,Kim Janssen,CG6A
+2,99163,Esther Kelderman,CG6A
+2,99367,Maxime Kuijpers,CG6A
+2,99829,Clarissa van der Meer,CG6A
+2,99500,Rens van Mens,CG6A
+2,99099,Robin Moene,CG6A
+2,99411,Yvette Oortwijn,CG6A
+2,99424,Britt Pellegrom,CG6A
+2,99391,Maayke Pleijers,CG6A
+2,99392,Yaryi van der Ploeg,CG6A
+2,99045,Oumaima Qaddour,CG6A
+2,99169,Iris de Ruiter,CG6A
+2,99493,Maite Spel,CG6A
+2,99421,Esther van Tatenhove,CG6A
+2,99420,Finn Theuws,CG6A
+2,99498,Pim ten Thije,CG6A
+2,99417,Thirza Tiel,CG6A
+2,98816,Michael Verdel,CG6A
+2,99383,Doortje Visser,CG6A
+2,99494,Maura Willems,CG6A
+2,99403,Senne Zeinstra,CG6A
+2,99405,Ali Albogatsjiev,CG6B
+2,99350,Saskia Belt,CG6B
+2,99527,Jan Daalder,CG6B
+2,99354,Isaak Eijkelboom,CG6B
+2,99380,Jan Garritzen,CG6B
+2,99502,Montello Heldring,CG6B
+2,99363,Floris Jansen,CG6B
+2,99364,Nicole Kaandorp,CG6B
+2,99103,Halima Kharrat,CG6B
+2,99365,Rafaël Kooistra,CG6B
+2,99098,Jim Korink,CG6B
+2,99366,Anna Kostiouk,CG6B
+2,99497,Fokke Kuijten,CG6B
+2,99368,Daan Lenssen,CG6B
+2,99138,Jeroen Letteboer,CG6B
+2,99122,Frenchesca Marsham,CG6B
+2,99386,Isabel Nijland,CG6B
+2,99409,Ena-Nicole Nsiah-Asare,CG6B
+2,102314,Ben Nunes Vaz,CG6B
+2,99104,Maxim Peters,CG6B
+2,99406,Rick Poelwijk,CG6B
+2,99410,Jochem Scheepers,CG6B
+2,99095,Mirjam Schipper,CG6B
+2,99418,Ike Schulte,CG6B
+2,99404,Houssain Taibi,CG6B
+2,98751,Mante Vervoort,CG6B
+2,99387,Oi Yan Wan,CG6B
+2,99375,Josefien de Wind,CG6B
+2,98717,Chanel Witting,CG6B
+3,AAO,AAO,Leraar
+3,BNW,BNW,Leraar
+3,BOA,BOA,Leraar
+3,BOK,BOK,Leraar
+3,BOO,BOO,Leraar
+3,BOS,BOS,Leraar
+3,BRD,BRD,Leraar
+3,BRG,BRG,Leraar
+3,BRN,BRN,Leraar
+3,BUO,BUO,Leraar
+3,CAS,CAS,Leraar
+3,CLF,CLF,Leraar
+3,COO,COO,Leraar
+3,DBM,DBM,Leraar
+3,DEG,DEG,Leraar
+3,DNF,DNF,Leraar
+3,DUF,DUF,Leraar
+3,DYW,DYW,Leraar
+3,EGN,EGN,Leraar
+3,ETL,ETL,Leraar
+3,GOL,GOL,Leraar
+3,GRE,GRE,Leraar
+3,GRK,GRK,Leraar
+3,HEE,HEE,Leraar
+3,HOO,HOO,Leraar
+3,JAA,JAA,Leraar
+3,KLK,KLK,Leraar
+3,KON,KON,Leraar
+3,KSE,KSE,Leraar
+3,MIK,MIK,Leraar
+3,MLDP,MLDP,Leraar
+3,MNE,MNE,Leraar
+3,MOA,MOA,Leraar
+3,NOE,NOE,Leraar
+3,NYN,NYN,Leraar
+3,PBRB,PBRB,Leraar
+3,PDYN,PDYN,Leraar
+3,PED,PED,Leraar
+3,POLB,POLB,Leraar
+3,PREI,PREI,Leraar
+3,PRMT,PRMT,Leraar
+3,RAM,RAM,Leraar
+3,RHG,RHG,Leraar
+3,ROK,ROK,Leraar
+3,SCK,SCK,Leraar
+3,SCN,SCN,Leraar
+3,SCS,SCS,Leraar
+3,SCW,SCW,Leraar
+3,SLL,SLL,Leraar
+3,SPE,SPE,Leraar
+3,TAO,TAO,Leraar
+3,TSD,TSD,Leraar
+3,VEL,VEL,Leraar
+3,VEN,VEN,Leraar
+3,VES,VES,Leraar
+3,VET,VET,Leraar
+3,VIF,VIF,Leraar
+3,VLK,VLK,Leraar
+3,VLN,VLN,Leraar
+3,VOM,VOM,Leraar
+3,VRE,VRE,Leraar
+3,VRF,VRF,Leraar
+3,VRG,VRG,Leraar
+3,VST,VST,Leraar
+3,WIB,WIB,Leraar
+3,WIW,WIW,Leraar
+3,WNW,WNW,Leraar

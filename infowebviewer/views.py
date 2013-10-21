@@ -32,7 +32,7 @@ def over():
     week = str(datetime.date.today().isocalendar()[1])
     title = 'Over - Infowebviewer'
 
-    return render_template('over.html', week=week, title=title)
+    return render_template('over.html', title=title, week=week)
 
 
 @app.route('/<int:week>/<ref>/<id_user>/')
@@ -49,14 +49,20 @@ def rooster(ref,id_user,week):
     result = User.query(User.llnr==id_user).get()
 
     if result is not None:
-        title = 'Rooster van {0} - Infowebviewer'.format(result)
+        if rooster is None:
+            title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
+            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+            rooster = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
+            return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+
+        title = 'Rooster van {0} - Infowebviewer'.format(result.name)
         h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
         return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
 
     else:
         title = 'Niet gevonden - Infowebviewer'
         h2 = 'Het rooster is niet gevonden.'
-        return render_template('rooster.html', title=title, h2=h2)
+        return render_template('rooster.html', title=title, h2=h2, week=week)
 
 
 @app.route('/fetch/', methods=['POST'])
@@ -69,8 +75,6 @@ def fetch():
     users = []
 
     for user in results:
-        print user.name, search_string
-
         if search_string.lower() in user.name.lower() or search_string.lower() in user.llnr.lower():
             insensitive = re.compile(r'(%s)' % search_string, re.IGNORECASE)
             name = insensitive.sub('<strong>\\1</strong>', user.name)
@@ -88,9 +92,10 @@ def fetch():
 
 @app.errorhandler(404)
 def error(e):
+    week = str(datetime.date.today().isocalendar()[1])
     error_number = '404'
     title = '404 Niet gevonden - Infowebviewer'
-    return render_template('error.html', error_number=e, title=title)
+    return render_template('error.html', error_number=e, title=title, week=week)
 
 if __name__ == '__main__':
     app.debug = True

@@ -33,6 +33,8 @@ $(document).ready(function() {
 
   console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com!');
 
+  $('body').css('padding-top', $('header#main').height());
+
   $('select#menu').change(function() {
     window.location = $(this).find('option:selected').val();
   });
@@ -79,6 +81,10 @@ $(document).ready(function() {
   $('input[type=number]').change(function() {
     weeknummer = $(this).val();
     fetchRoosters(searchInput);
+  });
+
+  $(window).resize(function() {
+    $('body').css('padding-top', $('header#main').height());
   });
 
 });
