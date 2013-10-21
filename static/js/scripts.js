@@ -63,7 +63,7 @@ $(document).ready(function() {
 
     } else if(e.keyCode === 13) { //enter
       var selectedHref = $('ul#acs .selected a').attr('href');
-      if(selectedHref != undefined) {
+      if(selectedHref != undefined && selectedHref != '') {
         window.location = selectedHref;
       } else {
         alert('Er waren geen resultaten en je gaat dus nu nergens heen.');
