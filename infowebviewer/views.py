@@ -1,11 +1,11 @@
 import datetime
 import re
+import requests
+from google.appengine.ext import ndb
 from requests import cookies
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import or_
 from bs4 import BeautifulSoup
-from models import User, db
+from models import User
 from infowebviewer import app
 
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
@@ -46,35 +46,51 @@ def rooster(ref,id_user,week):
     for pre in changes_list:
         changes = changes + str(pre)
 
-    result = User.query.filter_by(llnr=id_user).first()
-    title = 'Rooster van {0} - Infowebviewer'.format(result.name)
+    result = User.query(User.llnr==id_user).get()
 
-    h2 = '{0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+    if result is not None:
+        title = 'Rooster van {0} - Infowebviewer'.format(result)
+        h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+        return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
 
-    return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+    else:
+        title = 'Niet gevonden - Infowebviewer'
+        h2 = 'Het rooster is niet gevonden.'
+        return render_template('rooster.html', title=title, h2=h2)
 
 
 @app.route('/fetch/', methods=['POST'])
 def fetch():
     week = request.form['week']
     search_string = request.form['value']
-    search_query = "%{0}%".format(search_string)
 
-    results = User.query.filter(or_(User.name.like(search_query), User.llnr.like(search_query))).all()
+    results = User.query().fetch()
 
     users = []
 
     for user in results:
+        print user.name, search_string
 
-        insensitive = re.compile(r'(%s)' % search_string, re.IGNORECASE)
-        name = insensitive.sub('<strong>\\1</strong>', user.name)
+        if search_string.lower() in user.name.lower() or search_string.lower() in user.llnr.lower():
+            insensitive = re.compile(r'(%s)' % search_string, re.IGNORECASE)
+            name = insensitive.sub('<strong>\\1</strong>', user.name)
+            llnr = insensitive.sub('<strong>\\1</strong>', user.llnr)
 
-        link_name = '{0} ({1}, {2})'.decode('utf8').format(name, user.llnr, user.group)
+            link_name = '{0} ({1}, {2})'.decode('utf8').format(name, llnr, user.group)
 
-        href = '/{0}/{1}/{2}/'.format(week, user.ref, user.llnr)
-        users.append({ 'name': link_name, 'href': href })
+            href = '/{0}/{1}/{2}/'.format(week, user.ref, user.llnr)
+            users.append({ 'name': link_name, 'href': href })
+
+    if users == []:
+        users = [{ 'name': '<i>Geen resultaten</i>', 'href': '' }]
 
     return render_template('fetch.html', users=users)
+
+@app.errorhandler(404)
+def error(e):
+    error_number = '404'
+    title = '404 Niet gevonden - Infowebviewer'
+    return render_template('error.html', error_number=e, title=title)
 
 if __name__ == '__main__':
     app.debug = True

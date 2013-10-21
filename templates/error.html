@@ -8,21 +8,12 @@
 
 {% block page %}
   <div id="content">
+    <h2>{{ error }}</h2>
+    <p>Er is een fout opgetreden, de pagina is bijvoorbeeld niet gevonden. Zoek lekker verder met het veld hieronder.</p>
+
     <div id="searchname">
       <input type="text" placeholder="Vind een rooster..." id="search">
     </div>
     <ul id="acs"></ul>
-
-    <section>
-      <h2>Aanpassingen</h2>
-      <p id="changes">
-        {{ changes|safe }}
-      </p>
-    </section>
-
-    <section id="rooster">
-      <h2>{{ h2 }}</h2>
-      {{ rooster|safe }}
-    </section>
   </div>
 {% endblock %}
