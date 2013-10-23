@@ -72,7 +72,8 @@ $(document).ready(function() {
       }
 
     } else {
-      fetchRoosters(searchInput);
+      window.clearTimeout();
+      window.setTimeout(fetchRoosters, 400, searchInput);
     }
 
   });
@@ -80,7 +81,9 @@ $(document).ready(function() {
 
   $('input[type=number]').change(function() {
     weeknummer = $(this).val();
-    fetchRoosters(searchInput);
+
+    window.clearTimeout();
+    window.setTimeout(fetchRoosters, 400, searchInput);
   });
 
   $(window).resize(function() {
