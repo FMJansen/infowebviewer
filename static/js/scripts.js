@@ -55,7 +55,6 @@ function fetchRoosters(searchInput) {
         } else {
           $('ul#acs').html('<li class="noresult"><i>Er zijn geen resultaten voor de naam waar je naar zoekt.</i></li>');
         }
-
       });
   } else {
     $('ul#acs').html('');
@@ -74,6 +73,7 @@ $(document).ready(function() {
 
   var searchInput = $('div#searchname input');
   var searchVal = '';
+  var searchTimeout;
 
   searchInput.keyup(function(e) {
 
@@ -105,7 +105,8 @@ $(document).ready(function() {
       }
 
     } else if(searchVal !== searchInput.val()) {
-      fetchRoosters(searchInput);
+      window.clearTimeout(searchTimeout);
+      searchTimeout = window.setTimeout(fetchRoosters, 300, searchInput);
       searchVal = searchInput.val();
     }
 
@@ -114,7 +115,9 @@ $(document).ready(function() {
 
   $('input[type=number]').change(function() {
     weeknummer = $(this).val();
-    fetchRoosters(searchInput);
+
+    window.clearTimeout(searchTimeout);
+    searchTimeout = window.setTimeout(fetchRoosters, 300, searchInput);
   });
 
   $(window).resize(function() {
