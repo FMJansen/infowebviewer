@@ -7,6 +7,7 @@ from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from models import User
 from infowebviewer import app
+from db_in_memory import memory_db
 
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
@@ -70,23 +71,21 @@ def fetch():
     week = request.form['week']
     search_string = request.form['value']
 
-    results = User.query().fetch()
-
-    json_response = { 'users': 'true' }
+    json_response = {'users': 'true'}
     i = 1
 
-    for user in results:
-        if search_string.lower() in user.name.lower():
-            json_user = { 'ref': user.ref,
-                          'llnr': user.llnr,
-                          'name': user.name,
-                          'group': user.group }
+    for key in memory_db:
+        if search_string.lower() in memory_db[key]['name'].lower():
+            json_user = { 'ref': memory_db[key]['ref'],
+                          'llnr': memory_db[key]['llnr'],
+                          'name': memory_db[key]['name'],
+                          'group': memory_db[key]['group'] }
 
             json_response[i] = json_user
             i = i + 1
 
-    if json_response == { 'users': 'true' }:
-        json_response = { 'users': 'false' }
+    if json_response == {'users': 'true'}:
+        json_response = {'users': 'false'}
 
     return jsonify(json_response)
 

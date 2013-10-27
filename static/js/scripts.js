@@ -118,7 +118,7 @@ $(document).ready(function() {
 
     } else if(searchVal !== searchInput.val()) {
       window.clearTimeout(searchTimeout);
-      searchTimeout = window.setTimeout(bothUsers, 300, searchInput);
+      searchTimeout = window.setTimeout(bothUsers, 100, searchInput);
       searchVal = searchInput.val();
     }
 
