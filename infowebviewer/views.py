@@ -3,7 +3,7 @@ import re
 import requests
 from google.appengine.ext import ndb
 from requests import cookies
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from models import User
 from infowebviewer import app
@@ -72,23 +72,23 @@ def fetch():
 
     results = User.query().fetch()
 
-    users = []
+    json_response = { 'users': 'true' }
+    i = 1
 
     for user in results:
-        if search_string.lower() in user.name.lower() or search_string.lower() in user.llnr.lower():
-            insensitive = re.compile(r'(%s)' % search_string, re.IGNORECASE)
-            name = insensitive.sub('<strong>\\1</strong>', user.name)
-            llnr = insensitive.sub('<strong>\\1</strong>', user.llnr)
+        if search_string.lower() in user.name.lower():
+            json_user = { 'ref': user.ref,
+                          'llnr': user.llnr,
+                          'name': user.name,
+                          'group': user.group }
 
-            link_name = '{0} ({1}, {2})'.decode('utf8').format(name, llnr, user.group)
+            json_response[i] = json_user
+            i = i + 1
 
-            href = '/{0}/{1}/{2}/'.format(week, user.ref, user.llnr)
-            users.append({ 'name': link_name, 'href': href })
+    if json_response == { 'users': 'true' }:
+        json_response = { 'users': 'false' }
 
-    if users == []:
-        users = [{ 'name': '<i>Geen resultaten</i>', 'href': '' }]
-
-    return render_template('fetch.html', users=users)
+    return jsonify(json_response)
 
 @app.errorhandler(404)
 def error(e):

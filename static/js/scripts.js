@@ -10,6 +10,20 @@ $.fn.setCursorPosition = function(pos) {
   }
 }
 
+String.prototype.replaceBoldWithCase = function(subStr, newStr) {
+  return this.replace( new RegExp(subStr, 'ig'), function(found) {
+    var doneNew;
+
+    if(/[A-Z]/.test(found.charAt(0))) {
+      doneNew = '<b>' + newStr.charAt(0).toUpperCase() + newStr.substring(1) + '</b>';
+    } else {
+      doneNew = '<b>' + newStr.toLowerCase() + '</b>';
+    }
+
+    return doneNew;
+  });
+}
+
 function fetchRoosters(searchInput) {
   if(searchInput.val().length > 2) {
     var svalue = searchInput.val();
@@ -22,7 +36,26 @@ function fetchRoosters(searchInput) {
       }
     })
       .done(function(back) {
-        $('ul#acs').html(back).children(':first').addClass('selected');
+        if(back['users'] === 'true') {
+          var toReplace = searchInput.val();
+          var reg = new RegExp(toReplace,"gi");
+
+          $('ul#acs').html('');
+
+          for(var key in back) {
+            if(back.hasOwnProperty(key) && key !== 'users') {
+              var itemName = back[key]['name'].replaceBoldWithCase(toReplace, toReplace);
+              var itemUrl = '/' + weeknummer + '/' + back[key]['ref'] + '/' + back[key]['llnr'] + '/';
+              var listItem = '<li><a href="' + itemUrl + '">' + itemName + ' (' + back[key]['llnr'] + ', ' + back[key]['group'] + ')</a></li>';
+              $('ul#acs').append(listItem);
+            }
+          }
+
+          $('ul#acs').children(':first').addClass('selected');
+        } else {
+          $('ul#acs').html('<li class="noresult"><i>Er zijn geen resultaten voor de naam waar je naar zoekt.</i></li>');
+        }
+
       });
   } else {
     $('ul#acs').html('');
@@ -40,7 +73,7 @@ $(document).ready(function() {
   });
 
   var searchInput = $('div#searchname input');
-
+  var searchVal = '';
 
   searchInput.keyup(function(e) {
 
@@ -71,8 +104,9 @@ $(document).ready(function() {
         alert('Er waren geen resultaten en je gaat dus nu nergens heen.');
       }
 
-    } else {
+    } else if(searchVal !== searchInput.val()) {
       fetchRoosters(searchInput);
+      searchVal = searchInput.val();
     }
 
   });

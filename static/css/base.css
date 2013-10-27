@@ -111,7 +111,7 @@ ul#acs {
     border: 1px solid #eeeeee;
     background: #fafafa;
     border-top: none; }
-    ul#acs li a {
+    ul#acs li a, ul#acs li.noresult {
       font-size: 1.2em;
       padding: 0.7em;
       display: block; }

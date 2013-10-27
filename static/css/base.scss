@@ -161,7 +161,7 @@ ul#acs {
     background: #fafafa;
     border-top: none;
 
-    a {
+    a, &.noresult {
       font-size: 1.2em;
       padding: 0.7em;
       display: block;
