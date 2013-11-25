@@ -5,7 +5,7 @@
     function otherWeek(nuInput) {
       weeknummer = nuInput.val();
       var pathArray = window.location.pathname.split('/');
-      pathArray[1] = weeknummer;
+      pathArray[3] = weeknummer;
       var fullUrl = 'http://' + window.location.host + pathArray.join('/');
       console.log(fullUrl);
       window.location = fullUrl;
@@ -35,16 +35,16 @@
     </div>
     <ul id="acs"></ul>
 
+    <section id="rooster">
+      <h2>{{ h2 }}</h2>
+      {{ rooster|safe }}
+    </section>
+
     <section>
       <h2>Aanpassingen</h2>
       <p id="changes">
         {{ changes|safe }}
       </p>
-    </section>
-
-    <section id="rooster">
-      <h2>{{ h2 }}</h2>
-      {{ rooster|safe }}
     </section>
   </div>
 {% endblock %}
