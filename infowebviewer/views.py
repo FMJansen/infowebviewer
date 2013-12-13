@@ -9,11 +9,11 @@ from models import User
 from infowebviewer import app
 from db_in_memory import memory_db
 
-infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
+INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
 def get_rooster(ref,id_user,week,group):
     url_type = int(ref)
-    rooster_url = infoweb + 'index.php?ref={0}'.format(url_type)
+    rooster_url = INFOWEB + 'index.php?ref={0}'.format(url_type)
 
     form_data = {
         'weeknummer': week,
@@ -21,7 +21,7 @@ def get_rooster(ref,id_user,week,group):
         'element_id': id_user
     }
 
-    cookies = requests.get(infoweb + 'index.php').cookies
+    cookies = requests.get(INFOWEB + 'index.php').cookies
     response = requests.post(rooster_url, cookies=cookies, data=form_data)
 
     rooster_soup = BeautifulSoup(response.text)
