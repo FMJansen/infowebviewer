@@ -27,6 +27,36 @@ def get_rooster(ref,id_user,week,groep):
     rooster_soup = BeautifulSoup(response.text)
     return rooster_soup
 
+
+def make_page(ref, id_user, week):
+    bs4_element = get_rooster(ref,id_user,week,groep)
+
+    rooster = bs4_element.table
+
+    changes_list = bs4_element.find_all('pre')
+    changes = ''
+    for pre in changes_list:
+        changes = changes + str(pre)
+
+    result = User.query(User.llnr==id_user).get()
+
+    if result is not None:
+        if rooster is None:
+            title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
+            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+            rooster = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
+            return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+
+        title = 'Rooster van {0} - Infowebviewer'.format(result.name)
+        h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+        return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+
+    else:
+        title = 'Niet gevonden - Infowebviewer'
+        h2 = 'Het rooster is niet gevonden.'
+        return render_template('rooster.html', title=title, h2=h2, week=week)
+  
+  
 @app.route('/')
 def index():
     week = str(datetime.date.today().isocalendar()[1])
@@ -44,63 +74,13 @@ def over():
 
 @app.route('/<ref>/<id_user>/<int:week>/')
 def rooster(ref,id_user,week):
-    bs4_element = get_rooster(ref,id_user,week,groep)
-
-    rooster = bs4_element.table
-
-    changes_list = bs4_element.find_all('pre')
-    changes = ''
-    for pre in changes_list:
-        changes = changes + str(pre)
-
-    result = User.query(User.llnr==id_user).get()
-
-    if result is not None:
-        if rooster is None:
-            title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
-            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-            rooster = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
-            return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
-
-        title = 'Rooster van {0} - Infowebviewer'.format(result.name)
-        h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-        return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
-
-    else:
-        title = 'Niet gevonden - Infowebviewer'
-        h2 = 'Het rooster is niet gevonden.'
-        return render_template('rooster.html', title=title, h2=h2, week=week)
+    return make_page(ref, id_user, week)
 
 
 @app.route('/<ref>/<id_user>/')
 def rooster_no_week(ref,id_user):
     week = int(datetime.date.today().isocalendar()[1])
-    bs4_element = get_rooster(ref,id_user,week,groep)
-
-    rooster = bs4_element.table
-
-    changes_list = bs4_element.find_all('pre')
-    changes = ''
-    for pre in changes_list:
-        changes = changes + str(pre)
-
-    result = User.query(User.llnr==id_user).get()
-
-    if result is not None:
-        if rooster is None:
-            title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
-            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-            rooster = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
-            return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
-
-        title = 'Rooster van {0} - Infowebviewer'.format(result.name)
-        h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-        return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
-
-    else:
-        title = 'Niet gevonden - Infowebviewer'
-        h2 = 'Het rooster is niet gevonden.'
-        return render_template('rooster.html', title=title, h2=h2, week=week)
+    return make_page(ref, id_user, week)
 
 
 @app.route('/fetch/', methods=['POST'])
