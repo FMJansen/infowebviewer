@@ -13,13 +13,26 @@ INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
 def get_rooster(ref,id_user,week,group):
     url_type = int(ref)
-    rooster_url = INFOWEB + 'index.php?ref={0}'.format(url_type)
+    rooster_url = INFOWEB + 'index.php?ref={}'.format(url_type)
 
     form_data = {
         'weeknummer': week,
         'groep': group,
         'element_id': id_user
     }
+
+    # Get csrf token from a response and add it to form_data
+    csrf_soup = BeautifulSoup(requests.get(rooster_url).text)
+    csrf_input = csrf_soup.find('form').find('input') # csrf input field
+    csrf_token = csrf_input[-35:-3] # place of csrf token
+    form_data.update(csrf=csrf_token)
+
+    # Convert form_data to text
+    form_data_format = 'csrf={csrf}'\
+                       '&weeknummer={weeknummer}'\
+                       '&groep={groep}'\
+                       '&element_id={element_id}'
+    form_data = form_data_format.format(**form_data)
 
     cookies = requests.get(INFOWEB + 'index.php').cookies
     response = requests.post(rooster_url, cookies=cookies, data=form_data)
