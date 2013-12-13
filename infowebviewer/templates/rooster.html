@@ -5,7 +5,7 @@
     function otherWeek(nuInput) {
       weeknummer = nuInput.val();
       var pathArray = window.location.pathname.split('/');
-      pathArray[3] = weeknummer;
+      pathArray[4] = weeknummer;
       var fullUrl = 'http://' + window.location.host + pathArray.join('/');
       console.log(fullUrl);
       window.location = fullUrl;

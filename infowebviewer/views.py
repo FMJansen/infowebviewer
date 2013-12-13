@@ -11,25 +11,25 @@ from db_in_memory import memory_db
 
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
-def get_rooster(ref,id_user,week,groep):
+def get_rooster(ref,id_user,week,group):
     url_type = int(ref)
     rooster_url = infoweb + 'index.php?ref={0}'.format(url_type)
     
     form_data = {
         'weeknummer': week,
-        'groep': groep,
+        'groep': group,
         'element_id': id_user
     }
 
     cookies = requests.get(infoweb + 'index.php').cookies
-    response = requests.get(rooster_url, cookies=cookies, data=form_data)
+    response = requests.post(rooster_url, cookies=cookies, data=form_data)
 
     rooster_soup = BeautifulSoup(response.text)
     return rooster_soup
 
 
-def make_page(ref, id_user, week):
-    bs4_element = get_rooster(ref,id_user,week,groep)
+def make_page(ref, id_user, week, group):
+    bs4_element = get_rooster(ref,id_user,week,group)
 
     rooster = bs4_element.table
 
@@ -45,7 +45,7 @@ def make_page(ref, id_user, week):
             title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
             h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
             rooster = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
-            return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+            return render_template('rooster.html', ref=ref, id_user=id_user, group=result.group, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
 
         title = 'Rooster van {0} - Infowebviewer'.format(result.name)
         h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
@@ -72,15 +72,15 @@ def over():
     return render_template('over.html', title=title, week=week)
 
 
-@app.route('/<ref>/<id_user>/<int:week>/')
-def rooster(ref,id_user,week):
-    return make_page(ref, id_user, week)
+@app.route('/<ref>/<group>/<id_user>/<int:week>/')
+def rooster(ref,group,id_user,week):
+    return make_page(ref, id_user, week, group)
 
 
-@app.route('/<ref>/<id_user>/')
-def rooster_no_week(ref,id_user):
+@app.route('/<ref>/<group>/<id_user>/')
+def rooster_no_week(ref,group,id_user):
     week = int(datetime.date.today().isocalendar()[1])
-    return make_page(ref, id_user, week)
+    return make_page(ref, id_user, week, group)
 
 
 @app.route('/fetch/', methods=['POST'])
