@@ -11,12 +11,18 @@ from db_in_memory import memory_db
 
 infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
-def get_rooster(ref,id_user,week):
-    url_type = int(ref) - 2
-    rooster_url = infoweb + 'compact.php?week={1}&id={2}&type={0}'.format(url_type, week, id_user)
+def get_rooster(ref,id_user,week,groep):
+    url_type = int(ref)
+    rooster_url = infoweb + 'index.php?ref={0}'.format(url_type)
+    
+    form_data = {
+        'weeknummer': week,
+        'groep': groep,
+        'element_id': id_user
+    }
 
     cookies = requests.get(infoweb + 'index.php').cookies
-    response = requests.get(rooster_url, cookies=cookies)
+    response = requests.get(rooster_url, cookies=cookies, data=form_data)
 
     rooster_soup = BeautifulSoup(response.text)
     return rooster_soup
@@ -38,7 +44,7 @@ def over():
 
 @app.route('/<ref>/<id_user>/<int:week>/')
 def rooster(ref,id_user,week):
-    bs4_element = get_rooster(ref,id_user,week)
+    bs4_element = get_rooster(ref,id_user,week,groep)
 
     rooster = bs4_element.table
 
@@ -69,7 +75,7 @@ def rooster(ref,id_user,week):
 @app.route('/<ref>/<id_user>/')
 def rooster_no_week(ref,id_user):
     week = int(datetime.date.today().isocalendar()[1])
-    bs4_element = get_rooster(ref,id_user,week)
+    bs4_element = get_rooster(ref,id_user,week,groep)
 
     rooster = bs4_element.table
 
