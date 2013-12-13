@@ -14,7 +14,7 @@ infoweb = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 def get_rooster(ref,id_user,week,group):
     url_type = int(ref)
     rooster_url = infoweb + 'index.php?ref={0}'.format(url_type)
-    
+
     form_data = {
         'weeknummer': week,
         'groep': group,
@@ -55,8 +55,8 @@ def make_page(ref, id_user, week, group):
         title = 'Niet gevonden - Infowebviewer'
         h2 = 'Het rooster is niet gevonden.'
         return render_template('rooster.html', title=title, h2=h2, week=week)
-  
-  
+
+
 @app.route('/')
 def index():
     week = str(datetime.date.today().isocalendar()[1])
