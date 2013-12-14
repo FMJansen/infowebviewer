@@ -44,7 +44,7 @@ function fetchUsers(searchInput, callback) {
 }
 
 function processUsers(searchInput) {
-  if(searchInput.val().length > 2) {
+  if(searchInput.val().length > 1) {
     if(response['users'] === 'true') {
       var toReplace = searchInput.val();
       var reg = new RegExp(toReplace,"gi");
