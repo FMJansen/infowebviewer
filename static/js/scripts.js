@@ -92,11 +92,9 @@ function highlightHour(current) {
   currentLesson.addClass('current');
   dTop = currentLesson.offset().top;
   dLeft = currentLesson.offset().left;
-  console.log(dTop + ' ' + dLeft);
-  $(window).scrollTop(dTop);
+  $(window).scrollTop(dTop - 80);
   $('section#timetable').scrollLeft(dLeft - 50);
   var currentDate = new Date();
-  console.log('updated' + currentDate.getMinutes());
 }
 
 function getCorrectHour() {
