@@ -11,9 +11,9 @@ from db_in_memory import memory_db
 
 INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
-def get_rooster(ref,id_user,week,group):
+def get_timetable(ref,id_user,week,group):
     url_type = int(ref)
-    rooster_url = INFOWEB + 'index.php?ref={}'.format(url_type)
+    timetable_url = INFOWEB + 'index.php?ref={}'.format(url_type)
 
     form_data = {
         'weeknummer': week,
@@ -22,7 +22,7 @@ def get_rooster(ref,id_user,week,group):
     }
 
     # Get csrf token from a response and add it to form_data
-    csrf_soup = BeautifulSoup(requests.get(rooster_url).text)
+    csrf_soup = BeautifulSoup(requests.get(timetable_url).text)
     csrf_input = csrf_soup.find('form').find('input') # csrf input field
     csrf_token = csrf_input['value'] # place of csrf token
     form_data.update(csrf=csrf_token)
@@ -35,16 +35,16 @@ def get_rooster(ref,id_user,week,group):
     form_data = form_data_format.format(**form_data)
 
     cookies = requests.get(INFOWEB + 'index.php').cookies
-    response = requests.post(rooster_url, cookies=cookies, data=form_data)
+    response = requests.post(timetable_url, cookies=cookies, data=form_data)
 
-    rooster_soup = BeautifulSoup(response.text)
-    return rooster_soup
+    timetable_soup = BeautifulSoup(response.text)
+    return timetable_soup
 
 
 def make_page(ref, id_user, week, group):
-    bs4_element = get_rooster(ref,id_user,week,group)
+    bs4_element = get_timetable(ref,id_user,week,group)
 
-    rooster = bs4_element.table
+    timetable = bs4_element.table
 
     changes_list = bs4_element.find_all('pre')
     changes = ''
@@ -54,20 +54,20 @@ def make_page(ref, id_user, week, group):
     result = User.query(User.llnr==id_user).get()
 
     if result is not None:
-        if rooster is None:
+        if timetable is None:
             title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
             h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-            rooster = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
-            return render_template('rooster.html', ref=ref, id_user=id_user, group=result.group, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+            timetable = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
+            return render_template('timetable.html', ref=ref, id_user=id_user, group=result.group, week=week, title=title, timetable=timetable, changes=changes, h2=h2)
 
         title = 'Rooster van {0} - Infowebviewer'.format(result.name)
         h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-        return render_template('rooster.html', ref=ref, id_user=id_user, week=week, title=title, rooster=rooster, changes=changes, h2=h2)
+        return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2)
 
     else:
         title = 'Niet gevonden - Infowebviewer'
         h2 = 'Het rooster is niet gevonden.'
-        return render_template('rooster.html', title=title, h2=h2, week=week)
+        return render_template('timetable.html', title=title, h2=h2, week=week)
 
 
 @app.route('/')
@@ -86,12 +86,12 @@ def over():
 
 
 @app.route('/<ref>/<group>/<id_user>/<int:week>/')
-def rooster(ref,group,id_user,week):
+def timetable(ref,group,id_user,week):
     return make_page(ref, id_user, week, group)
 
 
 @app.route('/<ref>/<group>/<id_user>/')
-def rooster_no_week(ref,group,id_user):
+def timetable_no_week(ref,group,id_user):
     week = int(datetime.date.today().isocalendar()[1])
     return make_page(ref, id_user, week, group)
 

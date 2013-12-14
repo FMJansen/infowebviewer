@@ -135,8 +135,8 @@ pre {
   padding: 0 0.72em;
   white-space: normal; }
 
-/*ROOSTER*/
-section#rooster {
+/*TIMETABLE*/
+section#timetable {
   width: 90%;
   overflow: visible;
   overflow-x: scroll; }
@@ -193,7 +193,7 @@ footer {
     section:nth-child(1), ul#acs:nth-child(1) {
       margin-top: 2em; }
 
-  section#rooster {
+  section#timetable {
     width: 96%;
     overflow-x: auto; }
 
