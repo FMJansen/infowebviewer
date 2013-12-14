@@ -199,11 +199,6 @@ $(document).ready(function() {
     window.location = $(this).find('option:selected').val();
   });
 
-  highlightHour(getCorrectHour());
-  var reCalcHour = setInterval(function() {
-    highlightHour(getCorrectHour())
-  }, 1000 * 60 * 5);
-  
   var searchInput = $('div#searchname input');
   var searchVal = '';
   var searchTimeout;

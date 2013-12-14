@@ -21,6 +21,11 @@
           otherWeek($(this));
         }
       });
+
+      highlightHour(getCorrectHour());
+      var reCalcHour = setInterval(function() {
+        highlightHour(getCorrectHour())
+      }, 1000 * 60 * 5);
     });
   </script>
 {% endblock %}
