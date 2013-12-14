@@ -24,7 +24,7 @@ def get_rooster(ref,id_user,week,group):
     # Get csrf token from a response and add it to form_data
     csrf_soup = BeautifulSoup(requests.get(rooster_url).text)
     csrf_input = csrf_soup.find('form').find('input') # csrf input field
-    csrf_token = csrf_input[-35:-3] # place of csrf token
+    csrf_token = csrf_input['value'] # place of csrf token
     form_data.update(csrf=csrf_token)
 
     # Convert form_data to text
