@@ -45,7 +45,7 @@ def get_timetable(ref,id_user,week,group):
 def make_page(ref, id_user, week, group):
     bs4_element = get_timetable(ref,id_user,week,group)
 
-    timetable = bs4_element.table
+    timetable = bs4_element.find('table', attrs={'class':'roostercontainer'})
 
     changes_list = bs4_element.find_all('pre')
     changes = ''

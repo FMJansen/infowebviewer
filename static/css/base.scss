@@ -283,6 +283,14 @@ footer {
   section#timetable {
     width: 96%;
     overflow-x: auto;
+  
+    > table {
+      min-width: 600px;
+
+      table {
+        width: 100% !important;
+      }
+    }
   }
 
   table {
