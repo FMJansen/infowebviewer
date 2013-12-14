@@ -22,7 +22,8 @@ def get_timetable(ref,id_user,week,group):
     }
 
     # Get csrf token from a response and add it to form_data
-    csrf_soup = BeautifulSoup(requests.get(timetable_url).text)
+    csrf_response = requests.get(timetable_url)
+    csrf_soup = BeautifulSoup(csrf_response.text)
     csrf_input = csrf_soup.find('form').find('input') # csrf input field
     csrf_token = csrf_input['value'] # place of csrf token
     form_data.update(csrf=csrf_token)
@@ -34,7 +35,7 @@ def get_timetable(ref,id_user,week,group):
                        '&element_id={element_id}'
     form_data = form_data_format.format(**form_data)
 
-    cookies = requests.get(INFOWEB + 'index.php').cookies
+    cookies = csrf_response.cookies
     response = requests.post(timetable_url, cookies=cookies, data=form_data)
 
     timetable_soup = BeautifulSoup(response.text)
