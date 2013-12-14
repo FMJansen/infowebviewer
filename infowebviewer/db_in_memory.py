@@ -1,6 +1,12 @@
 from google.appengine.ext import ndb
 from models import User
 
+remove_entries = User.query().fetch(keys_only=True)
+ndb.delete_multi(remove_entries)
+
+import db_updater
+db_updater.update_db()
+
 results = User.query().fetch()
 
 memory_db = {}
