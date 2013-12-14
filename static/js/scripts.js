@@ -1,7 +1,7 @@
 $.fn.setCursorPosition = function(pos) {
-  if ($(this).get(0).setSelectionRange) {
+  if($(this).get(0).setSelectionRange) {
     $(this).get(0).setSelectionRange(pos, pos);
-  } else if ($(this).get(0).createTextRange) {
+  } else if($(this).get(0).createTextRange) {
     var range = $(this).get(0).createTextRange();
     range.collapse(true);
     range.moveEnd('character', pos);
@@ -73,6 +73,122 @@ function bothUsers(searchInput) {
   fetchUsers(searchInput, processUsers);
 }
 
+
+function highlightHour(current) {
+  var usableLessonHour = current['hour'] + 1;
+  var usableDay;
+  
+  var hourSelector = 'table.roosterdeel > tbody > tr:nth-child(' + usableLessonHour + ')';
+
+  if(current['day'] > 5) {
+    usableDay = 2;
+  } else {
+    usableDay = current['day'] + 1;
+  }
+  var lessonSelector = ':nth-child(' + usableDay + ')';
+
+  $('table.roosterdeel > tbody > tr').removeClass('highlighted');
+  currentLesson = $(hourSelector).children(lessonSelector);
+  currentLesson.addClass('current');
+  dTop = currentLesson.offset().top;
+  dLeft = currentLesson.offset().left;
+  console.log(dTop + ' ' + dLeft);
+  $(window).scrollTop(dTop);
+  $('section#timetable').scrollLeft(dLeft - 50);
+  var currentDate = new Date();
+  console.log('updated' + currentDate.getMinutes());
+}
+
+function getCorrectHour() {
+  var currentDate = new Date();
+  var currentHour = currentDate.getHours();
+  var currentMinute = currentDate.getMinutes();
+  var currentDay = currentDate.getDay();
+  var lessonHour;
+
+  if(currentDay == 6 || currentDay == 7) {
+    lessonHour = 1;
+  } else {
+    switch(currentHour) {
+      case 1:
+      case 2:
+      case 3:
+      case 4:
+      case 5:
+      case 6:
+      case 7:
+      case 8:
+      case 17:
+      case 18:
+      case 19:
+      case 20:
+      case 21:
+      case 22:
+      case 23:
+        lessonHour = 1;
+        break;
+  
+      case 9:
+        if(currentMinute < 20) {
+          lessonHour = 1;
+        } else {
+          lessonHour = 2;
+        }
+        break;
+  
+      case 10:
+        if(currentMinute < 10) {
+          lessonHour = 2;
+        } else {
+          lessonHour = 3;
+        }
+        break;
+  
+      case 11:
+        lessonHour = 4;
+        break;
+  
+      case 12:
+        if(currentMinute < 10) {
+          lessonHour = 4;
+        } else {
+          lessonHour = 5;
+        }
+        break;
+        
+      case 13:
+        lessonHour = 6;
+        break;
+        
+      case 14:
+        if(currentMinute < 20) {
+          lessonHour = 6;
+        } else {
+          lessonHour = 7;
+        }
+        break;
+        
+      case 15:
+        if(currentMinute < 10) {
+          lessonHour = 7;
+        } else {
+          lessonHour = 8;
+        }
+        break;
+        
+      case 16:
+        if(currentMinute < 10) {
+          lessonHour = 8;
+        } else {
+          lessonHour = 9;
+        }
+        break;
+    }
+  }
+
+  return { 'hour': lessonHour, 'day': currentDay };
+}
+
 $(document).ready(function() {
 
   console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com!');
@@ -83,6 +199,11 @@ $(document).ready(function() {
     window.location = $(this).find('option:selected').val();
   });
 
+  highlightHour(getCorrectHour());
+  var reCalcHour = setInterval(function() {
+    highlightHour(getCorrectHour())
+  }, 1000 * 60 * 5);
+  
   var searchInput = $('div#searchname input');
   var searchVal = '';
   var searchTimeout;
