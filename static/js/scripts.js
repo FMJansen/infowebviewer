@@ -30,7 +30,6 @@ function otherWeek(nuInput) {
   var pathArray = window.location.pathname.split('/');
   pathArray[4] = weeknummer;
   var fullUrl = 'http://' + window.location.host + pathArray.join('/');
-  console.log(fullUrl);
   window.location = fullUrl;
 }
 
@@ -200,7 +199,7 @@ function getCorrectHour() {
 
 $(document).ready(function() {
 
-  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com!');
+  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com! (infowebviewer v0.3');
 
   $('body').css('padding-top', $('header#main').height());
 
