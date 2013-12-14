@@ -24,6 +24,17 @@ String.prototype.replaceBoldWithCase = function(subStr, newStr) {
   });
 }
 
+
+function otherWeek(nuInput) {
+  weeknummer = nuInput.val();
+  var pathArray = window.location.pathname.split('/');
+  pathArray[4] = weeknummer;
+  var fullUrl = 'http://' + window.location.host + pathArray.join('/');
+  console.log(fullUrl);
+  window.location = fullUrl;
+}
+
+
 var response;
 
 function fetchUsers(searchInput, callback) {
