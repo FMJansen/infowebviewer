@@ -116,6 +116,7 @@ function getCorrectHour() {
 
   if(currentDay == 6 || currentDay == 0) {
     lessonHour = 1;
+    currentDay = 1;
   } else {
     switch(currentHour) {
       case 1:
@@ -197,9 +198,23 @@ function getCorrectHour() {
   return { 'hour': lessonHour, 'day': currentDay };
 }
 
+
+function placeCookie(group, user_id, ref) {
+  if(document.cookie == document.cookie) {
+    index = -1;
+  }
+
+  if (index == -1) {
+    document.cookie = "group=" + group + "; path=/; expires=Monday, 04-Apr-2020 05:00:00 GMT";
+    document.cookie = "user_id=" + user_id + "; path=/; expires=Monday, 04-Apr-2020 05:00:00 GMT";
+    document.cookie = "ref=" + ref + "; path=/; expires=Monday, 04-Apr-2020 05:00:00 GMT";
+  }
+}
+
+
 $(document).ready(function() {
 
-  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com! (infowebviewer v0.3');
+  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com! (infowebviewer v0.4)');
 
   $('body').css('padding-top', $('header#main').height());
 
@@ -210,6 +225,45 @@ $(document).ready(function() {
   var searchInput = $('div#searchname input');
   var searchVal = '';
   var searchTimeout;
+
+  if($('button#save_user').length === 1) {
+    var cookie_string = document.cookie;
+    if(cookie_string.length != 0) {
+      var user_id_value = cookie_string.match('user_id=([^;]*)');
+      if(user_id_value) {
+        if($('button#save_user').attr('data-user_id') === user_id_value[1]) {
+          $('button#save_user').text('Dit rooster wordt getoond bij het openen. Verwijderen?').attr('id', 'remove_user');
+        }
+      }
+    }
+  }
+
+  $('body').on('click', 'button#save_user', function(e) {
+    e.preventDefault();
+    var group = $(this).attr('data-group');
+    var user_id = $(this).attr('data-user_id');
+    var ref = $(this).attr('data-ref');
+    placeCookie(group, user_id, ref);
+    $(this).text('Dit rooster wordt getoond bij het openen. Verwijderen?').attr('id', 'remove_user');
+  });
+
+  $('body').on('click', 'button#remove_user', function(e) {
+    e.preventDefault();
+    document.cookie="user_id=; max-age=0; path=/";
+    $(this).text('Toon dit rooster bij openen').attr('id', 'save_user');
+  });
+
+  if(window.location.pathname.length < 2) {
+    var cookie_string = document.cookie;
+    if(cookie_string.length != 0) {
+      var group_value = cookie_string.match('group=([^;]*)');
+      var user_id_value = cookie_string.match('user_id=([^;]*)');
+      var ref_value = cookie_string.match('ref=([^;]*)');
+      if(group_value.length > 0 && user_id_value.length > 0 && ref_value.length > 0) {
+        window.location.pathname = '/' + ref_value[1] + '/' + group_value[1] + '/' + user_id_value[1] + '/';
+      }
+    }
+  }
 
   searchInput.keyup(function(e) {
 

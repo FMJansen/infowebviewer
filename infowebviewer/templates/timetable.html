@@ -3,8 +3,8 @@
 {% block head %}
   <script>
     $(document).ready(function() {
-      $('nav').append('<button>Ga</button>');
-      $('button').click(function() {
+      $('nav').append('<button id="change_week">Ga</button>');
+      $('button#change_week').click(function() {
         otherWeek($(this).prev());
       });
       $('input[type=number]').keyup(function(e) {
@@ -32,6 +32,7 @@
     <ul id="acs"></ul>
 
     <section id="timetable">
+      <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
       <h2>{{ h2 }}</h2>
       {{ timetable|safe }}
     </section>

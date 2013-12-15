@@ -63,7 +63,7 @@ def make_page(ref, id_user, week, group):
 
         title = 'Rooster van {0} - Infowebviewer'.format(result.name)
         h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-        return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2)
+        return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2, group=result.group)
 
     else:
         title = 'Niet gevonden - Infowebviewer'
