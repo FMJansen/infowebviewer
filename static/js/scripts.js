@@ -114,7 +114,7 @@ function getCorrectHour() {
   var currentDay = currentDate.getDay();
   var lessonHour;
 
-  if(currentDay == 6 || currentDay == 7) {
+  if(currentDay == 6 || currentDay == 0) {
     lessonHour = 1;
   } else {
     switch(currentHour) {
