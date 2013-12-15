@@ -259,7 +259,7 @@ $(document).ready(function() {
       var group_value = cookie_string.match('group=([^;]*)');
       var user_id_value = cookie_string.match('user_id=([^;]*)');
       var ref_value = cookie_string.match('ref=([^;]*)');
-      if(group_value.length > 0 && user_id_value.length > 0 && ref_value.length > 0) {
+      if(group_value && user_id_value && ref_value) {
         window.location.pathname = '/' + ref_value[1] + '/' + group_value[1] + '/' + user_id_value[1] + '/';
       }
     }
