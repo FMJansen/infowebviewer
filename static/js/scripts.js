@@ -127,13 +127,6 @@ function getCorrectHour() {
       case 6:
       case 7:
       case 8:
-      case 17:
-      case 18:
-      case 19:
-      case 20:
-      case 21:
-      case 22:
-      case 23:
         lessonHour = 1;
         break;
   
@@ -191,6 +184,17 @@ function getCorrectHour() {
         } else {
           lessonHour = 9;
         }
+        break;
+
+      case 17:
+      case 18:
+      case 19:
+      case 20:
+      case 21:
+      case 22:
+      case 23:
+        lessonHour = 1;
+        currentDay = currentDay + 1;
         break;
     }
   }
