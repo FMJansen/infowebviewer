@@ -218,7 +218,7 @@ function placeCookie(group, user_id, ref) {
 
 $(document).ready(function() {
 
-  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com! (infowebviewer v0.4)');
+  console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com! (infowebviewer v0.4.1)');
 
   $('body').css('padding-top', $('header#main').height());
 
