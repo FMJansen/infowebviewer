@@ -31,9 +31,10 @@
     </div>
     <ul id="acs"></ul>
 
+    <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
+    <h2>{{ h2 }}</h2>
+
     <section id="timetable">
-      <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
-      <h2>{{ h2 }}</h2>
       {{ timetable|safe }}
     </section>
   </div>
