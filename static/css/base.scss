@@ -200,18 +200,18 @@ pre {
 
 
 /*TIMETABLE*/
+button#save_user, button#remove_user {
+  margin: 1em auto 0;
+  display: block;
+  background: $maincolor;
+  color: white;
+  border-color: darken($maincolor, 10%);
+}
+
 section#timetable {
   width: 90%;
   overflow: visible;
   overflow-x: scroll;
-
-  button {
-    margin: 1em auto 0;
-    display: block;
-    background: $maincolor;
-    color: white;
-    border-color: darken($maincolor, 10%);
-  }
 }
 
 table {

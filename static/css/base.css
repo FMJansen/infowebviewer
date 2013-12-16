@@ -136,16 +136,17 @@ pre {
   white-space: normal; }
 
 /*TIMETABLE*/
+button#save_user, button#remove_user {
+  margin: 1em auto 0;
+  display: block;
+  background: #013d7d;
+  color: white;
+  border-color: #01244a; }
+
 section#timetable {
   width: 90%;
   overflow: visible;
   overflow-x: scroll; }
-  section#timetable button {
-    margin: 1em auto 0;
-    display: block;
-    background: #013d7d;
-    color: white;
-    border-color: #01244a; }
 
 table {
   width: 100%; }
