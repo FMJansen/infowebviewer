@@ -64,7 +64,7 @@ function processUsers(searchInput) {
       for(var key in response) {
         if(response.hasOwnProperty(key) && key !== 'users') {
           var itemName = response[key]['name'].replaceBoldWithCase(toReplace, toReplace);
-          var itemUrl = '/' + response[key]['ref'] + '/' + response[key]['group'] + '/' + response[key]['llnr'] + '/' + weeknummer + '/';
+          var itemUrl = '/' + response[key]['ref'] + '/' + response[key]['group'] + '/' + response[key]['llnr'] + '/';
           var listItem = '<li><a href="' + itemUrl + '">' + itemName + ' (' + response[key]['llnr'] + ', ' + response[key]['group'] + ')</a></li>';
           $('ul#acs').append(listItem);
         }
