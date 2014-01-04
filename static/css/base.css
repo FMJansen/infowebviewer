@@ -59,30 +59,11 @@ header#main {
   header#main h1 {
     display: inline-block;
     font-size: 1.5em;
-    margin: 0.5em 0 0;
+    margin: 0.5em;
     float: left; }
     header#main h1 a:link, header#main h1 a:visited {
       color: white;
       text-decoration: none; }
-  header#main ul {
-    display: none; }
-  header#main div#menuopener {
-    width: 3.4em;
-    height: 3.4em;
-    float: left;
-    display: block;
-    overflow: hidden;
-    background: url(/static/img/menuicon.png);
-    background-position: center;
-    background-repeat: no-repeat; }
-    header#main div#menuopener select {
-      opacity: 0;
-      width: 20%;
-      transform: scale(4);
-      -o-transform: scale(4);
-      -ms-transform: scale(4);
-      -moz-transform: scale(4);
-      -webkit-transform: scale(4); }
   header#main span {
     display: block;
     float: left;
@@ -187,20 +168,10 @@ footer {
 
   header#main h1 {
     margin: 0.7em; }
-  header#main ul {
-    display: block;
-    float: left;
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-    header#main ul li {
-      float: left; }
-      header#main ul li a {
-        display: block;
-        padding: 1.4em;
-        color: white; }
-  header#main div#menuopener {
-    display: none; }
+  header#main span {
+    padding: 1.4em 0.9em 0; }
+  header#main input[type=number] {
+    margin: 1em 0 0; }
 
   section, ul#acs {
     margin: 0 2% 2em; }

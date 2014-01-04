@@ -99,33 +99,12 @@ header#main {
   h1 {
     display: inline-block;
     font-size: 1.5em;
-    margin: 0.5em 0 0;
+    margin: 0.5em;
     float: left;
 
     a:link, a:visited {
       color: white;
       text-decoration: none;
-    }
-  }
-
-  ul {
-    display: none;
-  }
-
-  div#menuopener {
-    width: 3.4em;
-    height: 3.4em;
-    float: left;
-    display: block;
-    overflow: hidden;
-    background: url(/static/img/menuicon.png);
-    background-position: center;
-    background-repeat: no-repeat;
-
-    select {
-      opacity: 0;
-      width: 20%;
-      @include prefixify(transform, scale(4));
     }
   }
 
@@ -261,27 +240,11 @@ footer {
     h1 {
       margin: 0.7em;
     }
-
-    ul {
-      display: block;
-      float: left;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-
-      li {
-        float: left;
-
-        a {
-          display: block;
-          padding: 1.4em;
-          color: white;
-        }
-      }
+    span {
+      padding: 1.4em 0.9em 0;
     }
-
-    div#menuopener {
-      display: none;
+    input[type=number] {
+      margin: 1.0em 0 0;
     }
   }
 

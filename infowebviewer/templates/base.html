@@ -36,28 +36,11 @@
   <body>
 
     <header id="main">
-      <div id="menuopener">
-        <select id="menu">
-          <option selected>Ga naar:</option>
-          <option value="/">Roosters</option>
-          <option value="/over/">Over</option>
-        </select>
-      </div>
       <h1>
         <a href="/">Rooster</a>
       </h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/">Roosters</a>
-          </li>
-          <li>
-            <a href="/over/">Over</a>
-          </li>
-        </ul>
-        <span>Weeknr. </span>
-        <input type="number" min="1" max="53" name="week" placeholder="Weeknr" value="{{ week }}">
-      </nav>
+      <span>Weeknr. </span>
+      <input type="number" min="1" max="53" name="week" placeholder="Weeknr" value="{{ week }}">
     </header>
 
     <div id="page">
@@ -66,7 +49,7 @@
     </div>
 
     <footer>
-      <p><a href="http://fmjansen.nl/">FMJansen.nl</a>, met dank aan Martin van Harmelen</p>
+      <p><a href="/over/">Over</a> - <a href="http://fmjansen.nl/">FMJansen.nl</a>, met dank aan Martin van Harmelen</p>
     </footer>
 
   </body>
