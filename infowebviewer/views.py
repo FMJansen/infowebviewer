@@ -1,6 +1,7 @@
 import datetime
 import re
 import requests
+import logging
 from google.appengine.ext import ndb
 from requests import cookies
 from flask import Flask, render_template, request, jsonify
@@ -46,6 +47,14 @@ def make_page(ref, id_user, week, group):
     bs4_element = get_timetable(ref,id_user,week,group)
 
     timetable = bs4_element.find('table', attrs={'class':'roostercontainer'})
+#    mon = BeautifulSoup('<ul id="mon" class="day"></ul>');
+#    tue = BeautifulSoup('<ul id="tue" class="day"></ul>');
+#    wed = BeautifulSoup('<ul id="wed" class="day"></ul>');
+#    thu = BeautifulSoup('<ul id="thu" class="day"></ul>');
+#    fri = BeautifulSoup('<ul id="fri" class="day"></ul>');
+#    
+#    rows = timetable.find('tr')
+#    app.logger.info(len(rows))
 
     changes_list = bs4_element.find_all('pre')
     changes = ''
