@@ -130,6 +130,8 @@ section#timetable {
     width: 100%;
     overflow: hidden;
     border-bottom: 1px solid #eeeeee; }
+    section#timetable nav .obs {
+      display: none; }
     section#timetable nav a {
       display: block;
       float: left;
@@ -163,6 +165,8 @@ div#days {
     div#days table.day > tbody > tr > td {
       height: 76px;
       padding-left: 0.5em; }
+  div#days table.roostercontainer {
+    font-size: 0.8em; }
 
 tr.current {
   background: white;
@@ -214,6 +218,8 @@ footer {
       min-width: 600px; }
       section#timetable > table table {
         width: 100% !important; }
+    section#timetable .obs {
+      display: inline-block; }
 
   table {
     width: auto;

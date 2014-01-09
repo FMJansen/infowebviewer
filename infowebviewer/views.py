@@ -7,7 +7,7 @@ from requests import cookies
 from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from models import User
-from infowebviewer import app#, db
+from infowebviewer import app, db
 
 INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
@@ -52,49 +52,59 @@ def make_page(ref, id_user, week, group):
     trs = []
     even = timetable.table.find_all('tr', { 'class': 'even' })
     oneven = timetable.table.find_all('tr', { 'class': 'oneven' })
-    trs.extend((oneven[0], even[0], oneven[1], even[1], oneven[2], even[2], oneven[3], even[3], oneven[4]))
-    
-    mon = BeautifulSoup('<table id="mon" class="day">' + '<tr></tr>' * 9 + '</table>');
-    tue = BeautifulSoup('<table id="tue" class="day">' + '<tr></tr>' * 9 + '</table>');
-    wed = BeautifulSoup('<table id="wed" class="day">' + '<tr></tr>' * 9 + '</table>');
-    thu = BeautifulSoup('<table id="thu" class="day">' + '<tr></tr>' * 9 + '</table>');
-    fri = BeautifulSoup('<table id="fri" class="day">' + '<tr></tr>' * 9 + '</table>');
-    
-    for i, tr in enumerate(trs):
-        tds = tr.contents
-        mon.table.contents[i].append(tds[3])
-        tue.table.contents[i].append(tds[4])
-        wed.table.contents[i].append(tds[5])
-        thu.table.contents[i].append(tds[6])
-        fri.table.contents[i].append(tds[7])
+
+    def make_nice_table(trs):
+        mon = BeautifulSoup('<table id="mon" class="day">' + '<tr></tr>' * 9 + '</table>');
+        tue = BeautifulSoup('<table id="tue" class="day">' + '<tr></tr>' * 9 + '</table>');
+        wed = BeautifulSoup('<table id="wed" class="day">' + '<tr></tr>' * 9 + '</table>');
+        thu = BeautifulSoup('<table id="thu" class="day">' + '<tr></tr>' * 9 + '</table>');
+        fri = BeautifulSoup('<table id="fri" class="day">' + '<tr></tr>' * 9 + '</table>');
         
-    app.logger.info(tue)
+        for i, tr in enumerate(trs):
+            tds = tr.contents
+            mon.table.contents[i].append(tds[3])
+            tue.table.contents[i].append(tds[4])
+            wed.table.contents[i].append(tds[5])
+            thu.table.contents[i].append(tds[6])
+            fri.table.contents[i].append(tds[7])
+            
+        nice_table = '{0}{1}{2}{3}{4}{5}{6}'.format(first_div, secnd_div, mon, tue, wed, thu, fri)
+        return nice_table
+        
+    
+    try:
+        trs.extend((oneven[0], even[0], oneven[1], even[1], oneven[2], even[2], oneven[3], even[3], oneven[4]))
+        nice_table = make_nice_table(trs)
+        nice_table = nice_table.decode('utf-8')
+    except:
+        nice_table = timetable
 
-    nice_table = '{0}{1}{2}{3}{4}{5}{6}'.format(first_div, secnd_div, mon, tue, wed, thu, fri)
-
-    changes_list = bs4_element.find_all('pre')
-    changes = ''
-    for pre in changes_list:
-        changes = changes + str(pre)
-
-    result = User.query(User.llnr==id_user).get()
+        
+        
+    result = {}
+    for key in db:
+        if id_user == db[key]['llnr'].lower():
+            result['ref'] = db[key]['ref']
+            result['llnr'] = db[key]['llnr']
+            result['name'] = db[key]['name']
+            result['group'] = db[key]['group']
 
     if timetable is None:
-        title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
-        h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+        title = '(Geen) rooster van {0} - Infowebviewer'.format(result['name'])
+        h2 = 'Rooster van {0} ({1}, {2})'.format(result['name'], result['llnr'], result['group'])
         timetable = '<p style="text-align: center;">Er is (voor deze week) geen rooster gevonden.</p>'
-        return render_template('timetable.html', ref=ref, id_user=id_user, group=result.group, week=week, title=title, timetable=timetable, changes=changes, h2=h2)
+        return render_template('timetable.html', ref=ref, id_user=id_user, group=result['group'], week=week, title=title, timetable=timetable, h2=h2)
 
     else:
         if result is not None:
-            title = 'Rooster van {0} - Infowebviewer'.format(result.name)
-            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2, group=group)
+            title = 'Rooster van {0} - Infowebviewer'.format(result['name'])
+            h2 = 'Rooster van {0} ({1}, {2})'.format(result['name'], result['llnr'], result['group'])
+            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=nice_table, h2=h2, group=group)
 
         else:
             title = 'Gebruiker onbekend - Infowebviewer'
             h2 = 'De gebruiker is niet gevonden, wel een rooster.'
-            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=nice_table.decode('utf-8'), changes=changes, h2=h2, group=group)
+            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=nice_table, h2=h2, group=group)
 
 
 @app.route('/')

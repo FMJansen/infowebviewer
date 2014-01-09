@@ -195,6 +195,10 @@ section#timetable {
     overflow: hidden;
     border-bottom: 1px solid #eee;
     
+    .obs {
+      display: none;
+    }
+    
     a {
       display: block;
       float: left;
@@ -240,6 +244,10 @@ div#days{
       height: 76px;
       padding-left: 0.5em;
     }
+  }
+  
+  table.roostercontainer {
+    font-size: 0.8em;
   }
 }
 
@@ -312,6 +320,9 @@ footer {
       table {
         width: 100% !important;
       }
+    }
+    .obs {
+      display: inline-block;
     }
   }
 
