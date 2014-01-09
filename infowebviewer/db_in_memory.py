@@ -1,22 +1,34 @@
-from google.appengine.ext import ndb
-from models import User
-
-remove_entries = User.query().fetch(keys_only=True)
-ndb.delete_multi(remove_entries)
-
 import db_updater
-db_updater.update_db()
-
-results = User.query().fetch()
+students = db_updater.get_students(db_updater.get_groups())
+teachers = db_updater.get_teachers()
+classrooms = db_updater.get_classrooms()
 
 memory_db = {}
 i = 0
 
-for user in results:
-    new_user = { 'ref': user.ref,
-                 'llnr': user.llnr,
-                 'name': user.name,
-                 'group': user.group }
+for user in students:
+    new_user = { 'ref': user['ref'],
+                 'llnr': user['llnr'],
+                 'name': user['name'],
+                 'group': user['group'] }
+
+    memory_db[i] = new_user
+    i = i + 1
+
+for user in teachers:
+    new_user = { 'ref': user['ref'],
+                 'llnr': user['llnr'],
+                 'name': user['name'],
+                 'group': user['group'] }
+
+    memory_db[i] = new_user
+    i = i + 1
+
+for user in classrooms:
+    new_user = { 'ref': user['ref'],
+                 'llnr': user['llnr'],
+                 'name': user['name'],
+                 'group': user['group'] }
 
     memory_db[i] = new_user
     i = i + 1

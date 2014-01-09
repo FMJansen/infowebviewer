@@ -1,6 +1,3 @@
-from google.appengine.ext import ndb
-from infowebviewer.models import User
-
 import datetime
 import requests
 from bs4 import BeautifulSoup
@@ -46,7 +43,11 @@ def get_students(groups):
             if llnr.isalnum():
                 name = option.string
 
-                students.append([2, llnr, name, group])
+                new_user = { 'ref': 2,
+                             'llnr': llnr,
+                             'name': name,
+                             'group': group }
+                students.append(new_user)
 
     return students
 
@@ -64,7 +65,11 @@ def get_teachers():
         abbrev = option.string
 
         if abbrev.isalnum():
-            teachers.append([3, abbrev])
+            new_user = { 'ref': 3,
+                         'llnr': abbrev,
+                         'name': abbrev,
+                         'group': 'Docent' }
+            teachers.append(new_user)
 
     return teachers
 
@@ -81,7 +86,11 @@ def get_classrooms():
         abbrev = option.string
 
         if abbrev.isalnum():
-            classrooms.append([4, abbrev])
+            new_user = { 'ref': 4,
+                         'llnr': abbrev,
+                         'name': abbrev,
+                         'group': 'Lokaal' }
+            classrooms.append(new_user)
 
     return classrooms
 
