@@ -170,7 +170,7 @@ footer {
     margin: 0.7em; }
   header#main span {
     padding: 1.4em 0.9em 0; }
-  header#main input[type=number] {
+  header#main input[type=number], header#main button {
     margin: 1em 0 0; }
 
   section, ul#acs {
