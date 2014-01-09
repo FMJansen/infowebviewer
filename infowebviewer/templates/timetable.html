@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
+  <script src="/static/js/boxover.js"></script>
   <script>
     $(document).ready(function() {
       $('nav').append('<button id="change_week">Ga</button>');
@@ -18,6 +19,16 @@
         highlightHour(getCorrectHour())
       }, 1000 * 60 * 5);
     });
+
+    var mouse_location_event = null;
+    var timer_hover_id = null;
+
+    function handleMouseMove(event) {
+      event = event || window.event; // IE-ism
+      mouse_location_event = event;
+    }
+
+    document.onmousemove = handleMouseMove;
   </script>
 {% endblock %}
 
