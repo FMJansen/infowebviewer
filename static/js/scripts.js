@@ -10,18 +10,13 @@ $.fn.setCursorPosition = function(pos) {
   }
 }
 
-String.prototype.replaceBoldWithCase = function(subStr, newStr) {
-  return this.replace( new RegExp(subStr, 'ig'), function(found) {
-    var doneNew;
-
-    if(/[A-Z]/.test(found.charAt(0))) {
-      doneNew = '<b>' + newStr.charAt(0).toUpperCase() + newStr.substring(1) + '</b>';
-    } else {
-      doneNew = '<b>' + newStr.toLowerCase() + '</b>';
-    }
-
-    return doneNew;
-  });
+String.prototype.replaceBoldWithCase = function(subStr) {
+  start = this.toLowerCase().indexOf(subStr.toLowerCase());
+  end = start + subStr.length;
+  finish = this.length - 1;
+  console.log(start + ' ' + end);
+  newStr = this.substr(0, start) + '<b>' + this.substr(start, subStr.length) + '</b>' + this.substr(end, finish);
+  return newStr;
 }
 
 
@@ -56,16 +51,33 @@ function fetchUsers(searchInput, callback) {
 function processUsers(searchInput) {
   if(searchInput.val().length > 1) {
     if(response['users'] === 'true') {
+      console.log(response);
       var toReplace = searchInput.val();
-      var reg = new RegExp(toReplace,"gi");
 
       $('ul#acs').html('');
 
       for(var key in response) {
         if(response.hasOwnProperty(key) && key !== 'users') {
-          var itemName = response[key]['name'].replaceBoldWithCase(toReplace, toReplace);
+          var itemName = response[key]['name'];
+          var itemLlnr = response[key]['llnr'];
+          var itemGroup = response[key]['group'];
+
+          switch(response[key]['match']) {
+            case 'name':
+              itemName = itemName.replaceBoldWithCase(toReplace);
+              break;
+            case 'llnr':
+              itemLlnr = itemLlnr.replaceBoldWithCase(toReplace);
+              break;
+            case 'group':
+              itemGroup = itemGroup.replaceBoldWithCase(toReplace);
+              break;
+            default:
+              console.log(response['match']);
+              break;
+          }
           var itemUrl = '/' + response[key]['ref'] + '/' + response[key]['group'] + '/' + response[key]['llnr'] + '/';
-          var listItem = '<li><a href="' + itemUrl + '">' + itemName + ' (' + response[key]['llnr'] + ', ' + response[key]['group'] + ')</a></li>';
+          var listItem = '<li><a href="' + itemUrl + '">' + itemName + ' (' + itemLlnr + ', ' + itemGroup + ')</a></li>';
           $('ul#acs').append(listItem);
         }
       }

@@ -115,11 +115,32 @@ def fetch():
     i = 1
 
     for key in db:
-        if search_string.lower() in db[key]['name'].lower() or search_string.lower() in db[key]['llnr'].lower() or search_string.lower() in db[key]['group'].lower():
+        if search_string.lower() in db[key]['name'].lower():
             json_user = { 'ref': db[key]['ref'],
                           'llnr': db[key]['llnr'],
                           'name': db[key]['name'],
-                          'group': db[key]['group'] }
+                          'group': db[key]['group'],
+                          'match': 'name' }
+
+            json_response[i] = json_user
+            i = i + 1
+
+        if search_string.lower() in db[key]['llnr'].lower():
+            json_user = { 'ref': db[key]['ref'],
+                          'llnr': db[key]['llnr'],
+                          'name': db[key]['name'],
+                          'group': db[key]['group'],
+                          'match': 'llnr' }
+
+            json_response[i] = json_user
+            i = i + 1
+
+        if search_string.lower() in db[key]['group'].lower():
+            json_user = { 'ref': db[key]['ref'],
+                          'llnr': db[key]['llnr'],
+                          'name': db[key]['name'],
+                          'group': db[key]['group'],
+                          'match': 'group' }
 
             json_response[i] = json_user
             i = i + 1
