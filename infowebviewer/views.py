@@ -63,21 +63,22 @@ def make_page(ref, id_user, week, group):
 
     result = User.query(User.llnr==id_user).get()
 
-    if result is not None:
-        if timetable is None:
-            title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
-            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-            timetable = '<p style="text-align: center;">Er is voor deze week geen rooster gevonden.</p>'
-            return render_template('timetable.html', ref=ref, id_user=id_user, group=result.group, week=week, title=title, timetable=timetable, changes=changes, h2=h2)
-
-        title = 'Rooster van {0} - Infowebviewer'.format(result.name)
+    if timetable is None:
+        title = '(Geen) rooster van {0} - Infowebviewer'.format(result.name)
         h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
-        return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2, group=result.group)
+        timetable = '<p style="text-align: center;">Er is (voor deze week) geen rooster gevonden.</p>'
+        return render_template('timetable.html', ref=ref, id_user=id_user, group=result.group, week=week, title=title, timetable=timetable, changes=changes, h2=h2)
 
     else:
-        title = 'Niet gevonden - Infowebviewer'
-        h2 = 'Het rooster is niet gevonden.'
-        return render_template('timetable.html', title=title, h2=h2, week=week)
+        if result is not None:
+            title = 'Rooster van {0} - Infowebviewer'.format(result.name)
+            h2 = 'Rooster van {0} ({1}, {2})'.format(result.name, result.llnr, result.group)
+            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2, group=group)
+
+        else:
+            title = 'Gebruiker onbekend - Infowebviewer'
+            h2 = 'De gebruiker is niet gevonden, wel een rooster.'
+            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2, group=group)
 
 
 @app.route('/')
