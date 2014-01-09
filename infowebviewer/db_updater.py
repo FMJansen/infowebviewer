@@ -45,7 +45,7 @@ def get_students(groups):
 
                 new_user = { 'ref': 2,
                              'llnr': llnr,
-                             'name': name,
+                             'name': name.replace('  ', ' '),
                              'group': group }
                 students.append(new_user)
 
