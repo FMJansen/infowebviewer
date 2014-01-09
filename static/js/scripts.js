@@ -329,4 +329,17 @@ $(document).ready(function() {
     $('body').css('padding-top', $('header#main').height());
   });
 
+  $('body').keyup(function(e) {
+    if(e.keyCode === 191 || e.keyCode === 83) { //S & /
+      if(!$('input').is(':focus')) {
+        searchInput.focus();
+      }
+    } else if(e.keyCode === 27) { //Esc
+      $('body').focus();
+    } else if(e.keyCode === 78) { //N
+      if(!$('input').is(':focus')) {
+        $('input[type=number]').focus();
+      }
+    }
+  });
 });
