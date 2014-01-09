@@ -2,6 +2,6 @@ from flask import Flask
 
 app = Flask('infowebviewer')
 
-import db_in_memory
+from infowebviewer.db_in_memory import db
 
 import views

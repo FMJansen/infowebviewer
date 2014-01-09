@@ -3,7 +3,7 @@ students = db_updater.get_students(db_updater.get_groups())
 teachers = db_updater.get_teachers()
 classrooms = db_updater.get_classrooms()
 
-memory_db = {}
+db = {}
 i = 0
 
 for user in students:
@@ -12,7 +12,7 @@ for user in students:
                  'name': user['name'],
                  'group': user['group'] }
 
-    memory_db[i] = new_user
+    db[i] = new_user
     i = i + 1
 
 for user in teachers:
@@ -21,7 +21,7 @@ for user in teachers:
                  'name': user['name'],
                  'group': user['group'] }
 
-    memory_db[i] = new_user
+    db[i] = new_user
     i = i + 1
 
 for user in classrooms:
@@ -30,5 +30,5 @@ for user in classrooms:
                  'name': user['name'],
                  'group': user['group'] }
 
-    memory_db[i] = new_user
+    db[i] = new_user
     i = i + 1

@@ -7,8 +7,7 @@ from requests import cookies
 from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from models import User
-from infowebviewer import app
-from db_in_memory import memory_db
+from infowebviewer import app, db
 
 INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
@@ -115,12 +114,12 @@ def fetch():
     json_response = {'users': 'true'}
     i = 1
 
-    for key in memory_db:
-        if search_string.lower() in memory_db[key]['name'].lower():
-            json_user = { 'ref': memory_db[key]['ref'],
-                          'llnr': memory_db[key]['llnr'],
-                          'name': memory_db[key]['name'],
-                          'group': memory_db[key]['group'] }
+    for key in db:
+        if search_string.lower() in db[key]['name'].lower() or search_string.lower() in db[key]['llnr'].lower() or search_string.lower() in db[key]['group'].lower():
+            json_user = { 'ref': db[key]['ref'],
+                          'llnr': db[key]['llnr'],
+                          'name': db[key]['name'],
+                          'group': db[key]['group'] }
 
             json_response[i] = json_user
             i = i + 1
