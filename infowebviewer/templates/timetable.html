@@ -4,7 +4,6 @@
   <script src="/static/js/boxover.js"></script>
   <script>
     $(document).ready(function() {
-      $('nav').append('<button id="change_week">Ga</button>');
       $('button#change_week').click(function() {
         otherWeek($(this).prev());
       });
@@ -13,6 +12,7 @@
           otherWeek($(this));
         }
       });
+      openTab(false);
 
       highlightHour(getCorrectHour());
       var reCalcHour = setInterval(function() {
@@ -42,11 +42,32 @@
     </div>
     <ul id="acs"></ul>
 
-    <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
     <h2>{{ h2 }}</h2>
 
     <section id="timetable">
-      {{ timetable|safe }}
+      <nav id="tabswitcher">
+        <a href="#mon">Ma<span class="obs">andag</span></a>
+        <a href="#tue">Di<span class="obs">nsdag</span></a>
+        <a href="#wed">Wo<span class="obs">ensdag</span></a>
+        <a href="#thu">Do<span class="obs">nderdag</span></a>
+        <a href="#fri">Vr<span class="obs">ijdag</span></a>
+      </nav>
+      <div id="days">
+        <div id="numbers">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+          <div>4</div>
+          <div>5</div>
+          <div>6</div>
+          <div>7</div>
+          <div>8</div>
+          <div>9</div>
+        </div>
+        {{ timetable|safe }}
+      </div>
     </section>
+
+    <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
   </div>
 {% endblock %}

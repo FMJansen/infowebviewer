@@ -97,25 +97,19 @@ function bothUsers(searchInput) {
 
 
 function highlightHour(current) {
-  var usableLessonHour = current['hour'] + 1;
+  var usableLessonHour = current['hour'];
   var usableDay;
   
-  var hourSelector = 'table.roosterdeel > tbody > tr:nth-child(' + usableLessonHour + ')';
-
   if(current['day'] > 5) {
     usableDay = 2;
   } else {
-    usableDay = current['day'] + 1;
+    usableDay = current['day'];
   }
-  var lessonSelector = ':nth-child(' + usableDay + ')';
+  var daySelector = '#days > table:nth-of-type(' + usableDay + ') > tbody > :nth-child(' + usableLessonHour + ')';
 
-  $('table.roosterdeel > tbody > tr').removeClass('highlighted');
-  currentLesson = $(hourSelector).children(lessonSelector);
+  $('*').removeClass('current');
+  currentLesson = $(daySelector);
   currentLesson.addClass('current');
-  dTop = currentLesson.offset().top;
-  dLeft = currentLesson.offset().left;
-  $(window).scrollTop(dTop - 80);
-  $('section#timetable').scrollLeft(dLeft - 50);
   var currentDate = new Date();
 }
 
@@ -228,6 +222,43 @@ function placeCookie(group, user_id, ref) {
 }
 
 
+function openTab(day) {
+  var currentDate = new Date();
+  var currentDay = currentDate.getDay();
+  var currentHour = currentDate.getHours();
+  $('nav#tabswitcher a').removeClass('focused');
+  $('table.day').hide();
+
+  if(day) {
+    $('table.day' + day).show();
+    $('a[href=' + day + ']').addClass('focused');
+  } else {
+    if(currentHour > 16) {
+      currentDay = currentDay + 1;
+    }
+    switch(currentDay) {
+      case 6:
+      case 0:
+      case 1:
+        $('table.day#mon').show();
+        $('nav#tabswitcher a[href=#mon]').addClass('focused');
+      case 2:
+        $('table.day#tue').show();
+        $('nav#tabswitcher a[href=#tue]').addClass('focused');
+      case 3:
+        $('table.day#wed').show();
+        $('nav#tabswitcher a[href=#wed]').addClass('focused');
+      case 4:
+        $('table.day#thu').show();
+        $('nav#tabswitcher a[href=#thu]').addClass('focused');
+      case 5:
+        $('table.day#fri').show();
+        $('nav#tabswitcher a[href=#fri]').addClass('focused');
+    }
+  }
+}
+
+
 $(document).ready(function() {
 
   console.log('Hey! Leuk dat je hier even kijkt. Wil je helpen dit te verbeteren? Mail even naar florismartijnjansen+infowebviewer@gmail.com! (infowebviewer v0.4.1)');
@@ -280,6 +311,10 @@ $(document).ready(function() {
       }
     }
   }
+
+  $('nav#tabswitcher a').click(function() {
+    openTab($(this).attr('href'));
+  });
 
   searchInput.keyup(function(e) {
 

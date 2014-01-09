@@ -7,7 +7,7 @@ from requests import cookies
 from flask import Flask, render_template, request, jsonify
 from bs4 import BeautifulSoup
 from models import User
-from infowebviewer import app, db
+from infowebviewer import app#, db
 
 INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
@@ -46,14 +46,31 @@ def make_page(ref, id_user, week, group):
     bs4_element = get_timetable(ref,id_user,week,group)
 
     timetable = bs4_element.find('table', attrs={'class':'roostercontainer'})
-#    mon = BeautifulSoup('<ul id="mon" class="day"></ul>');
-#    tue = BeautifulSoup('<ul id="tue" class="day"></ul>');
-#    wed = BeautifulSoup('<ul id="wed" class="day"></ul>');
-#    thu = BeautifulSoup('<ul id="thu" class="day"></ul>');
-#    fri = BeautifulSoup('<ul id="fri" class="day"></ul>');
-#    
-#    rows = timetable.find('tr')
-#    app.logger.info(len(rows))
+    first_div = timetable.find(id='hover_caller_id')
+    secnd_div = timetable.find(id='hoverinfo')
+
+    trs = []
+    even = timetable.table.find_all('tr', { 'class': 'even' })
+    oneven = timetable.table.find_all('tr', { 'class': 'oneven' })
+    trs.extend((oneven[0], even[0], oneven[1], even[1], oneven[2], even[2], oneven[3], even[3], oneven[4]))
+    
+    mon = BeautifulSoup('<table id="mon" class="day">' + '<tr></tr>' * 9 + '</table>');
+    tue = BeautifulSoup('<table id="tue" class="day">' + '<tr></tr>' * 9 + '</table>');
+    wed = BeautifulSoup('<table id="wed" class="day">' + '<tr></tr>' * 9 + '</table>');
+    thu = BeautifulSoup('<table id="thu" class="day">' + '<tr></tr>' * 9 + '</table>');
+    fri = BeautifulSoup('<table id="fri" class="day">' + '<tr></tr>' * 9 + '</table>');
+    
+    for i, tr in enumerate(trs):
+        tds = tr.contents
+        mon.table.contents[i].append(tds[3])
+        tue.table.contents[i].append(tds[4])
+        wed.table.contents[i].append(tds[5])
+        thu.table.contents[i].append(tds[6])
+        fri.table.contents[i].append(tds[7])
+        
+    app.logger.info(tue)
+
+    nice_table = '{0}{1}{2}{3}{4}{5}{6}'.format(first_div, secnd_div, mon, tue, wed, thu, fri)
 
     changes_list = bs4_element.find_all('pre')
     changes = ''
@@ -77,7 +94,7 @@ def make_page(ref, id_user, week, group):
         else:
             title = 'Gebruiker onbekend - Infowebviewer'
             h2 = 'De gebruiker is niet gevonden, wel een rooster.'
-            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=timetable, changes=changes, h2=h2, group=group)
+            return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=nice_table.decode('utf-8'), changes=changes, h2=h2, group=group)
 
 
 @app.route('/')

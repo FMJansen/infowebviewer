@@ -125,19 +125,48 @@ button#save_user, button#remove_user {
   border-color: #01244a; }
 
 section#timetable {
-  width: 90%;
-  overflow: visible;
-  overflow-x: scroll; }
+  width: 90%; }
+  section#timetable nav {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #eeeeee; }
+    section#timetable nav a {
+      display: block;
+      float: left;
+      width: 15%;
+      padding: 2.5%;
+      font-weight: bold;
+      text-align: center; }
+      section#timetable nav a.focused {
+        background: #013d7d;
+        color: white; }
 
-table {
+div#days {
+  position: relative;
+  height: 702px; }
+  div#days div#numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: #013d7d;
+    border-right: 1px solid #eeeeee; }
+    div#days div#numbers div {
+      height: 58px;
+      padding: 20px 10px 0; }
+  div#days table.day {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    border-spacing: 0; }
+    div#days table.day > tbody > tr > td {
+      height: 76px;
+      padding-left: 0.5em; }
+
+tr.current {
+  background: white;
   width: 100%; }
-
-td.current {
-  box-shadow: 0 0 5px #026ee2;
-  -o-box-shadow: 0 0 5px #026ee2;
-  -ms-box-shadow: 0 0 5px #026ee2;
-  -moz-box-shadow: 0 0 5px #026ee2;
-  -webkit-box-shadow: 0 0 5px #026ee2; }
 
 .top, .left {
   background: #f5f5f5;

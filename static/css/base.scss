@@ -189,16 +189,63 @@ button#save_user, button#remove_user {
 
 section#timetable {
   width: 90%;
-  overflow: visible;
-  overflow-x: scroll;
+
+  nav {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    
+    a {
+      display: block;
+      float: left;
+      width: 15%;
+      padding: 2.5%;
+      font-weight: bold;
+      text-align: center;
+      
+      &.focused {
+        background: $maincolor;
+        color: white;
+      }
+    }
+  }
 }
 
-table {
+div#days{
+  position: relative;
+  height: 702px;
+  
+  div#numbers {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 2em;
+    font-weight: bold;
+    color: $maincolor;
+    border-right: 1px solid #eee;
+    
+    div {
+      height: 58px;
+      padding: 20px 10px 0;
+    }
+  }
+
+  table.day {
+    position: absolute;
+    top: 0;
+    left: 38px;
+    border-spacing: 0;
+    
+    > tbody > tr > td {
+      height: 76px;
+      padding-left: 0.5em;
+    }
+  }
+}
+
+tr.current {
+  background: white;
   width: 100%;
-}
-
-td.current {
-  @include prefixify(box-shadow, 0 0 5px lighten($maincolor, 20%));
 }
 
 .top, .left {
