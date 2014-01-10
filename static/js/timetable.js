@@ -130,18 +130,25 @@ function openTab(day) {
       case 1:
         $('table.day#mon').show();
         $('nav#tabswitcher a[href=#mon]').addClass('focused');
+        console.log(currentDay);
+        break;
       case 2:
         $('table.day#tue').show();
         $('nav#tabswitcher a[href=#tue]').addClass('focused');
+        console.log(currentDay);
+        break;
       case 3:
         $('table.day#wed').show();
         $('nav#tabswitcher a[href=#wed]').addClass('focused');
+        break;
       case 4:
         $('table.day#thu').show();
         $('nav#tabswitcher a[href=#thu]').addClass('focused');
+        break;
       case 5:
         $('table.day#fri').show();
         $('nav#tabswitcher a[href=#fri]').addClass('focused');
+        break;
     }
   }
 }
