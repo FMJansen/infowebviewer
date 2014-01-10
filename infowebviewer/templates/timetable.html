@@ -2,37 +2,16 @@
 
 {% block head %}
   <script src="/static/js/boxover.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('button#change_week').click(function() {
-        otherWeek($(this).prev());
-      });
-      $('input[type=number]').keyup(function(e) {
-        if(e.keyCode === 13) { //enter
-          otherWeek($(this));
-        }
-      });
-      openTab(false);
-
-      highlightHour(getCorrectHour());
-      var reCalcHour = setInterval(function() {
-        highlightHour(getCorrectHour())
-      }, 1000 * 60 * 5);
-    });
-
-    var mouse_location_event = null;
-    var timer_hover_id = null;
-
-    function handleMouseMove(event) {
-      event = event || window.event; // IE-ism
-      mouse_location_event = event;
-    }
-
-    document.onmousemove = handleMouseMove;
-  </script>
+  <script src="/static/js/timetable.js"></script>
 {% endblock %}
 
 {% block bodyclass %}
+{% endblock %}
+
+{% block header %}
+  <div id="togglesearch">
+    <div></div>
+  </div>
 {% endblock %}
 
 {% block page %}
@@ -68,6 +47,8 @@
       </div>
     </section>
 
-    <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
+    <div id="centerbutton">
+      <button id="save_user" data-group="{{ group }}" data-user_id="{{ id_user }}" data-ref="{{ ref }}">Toon dit rooster bij openen</button>
+    </div>
   </div>
 {% endblock %}

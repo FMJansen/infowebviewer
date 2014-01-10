@@ -91,14 +91,14 @@ def make_page(ref, id_user, week, group):
 
     if timetable is None:
         title = '(Geen) rooster van {0} - Infowebviewer'.format(result['name'])
-        h2 = 'Rooster van {0} ({1}, {2})'.format(result['name'], result['llnr'], result['group'])
+        h2 = '{0} ({1}, {2})'.format(result['name'], result['llnr'], result['group'])
         timetable = '<p style="text-align: center;">Er is (voor deze week) geen rooster gevonden.</p>'
         return render_template('timetable.html', ref=ref, id_user=id_user, group=result['group'], week=week, title=title, timetable=timetable, h2=h2)
 
     else:
         if result is not None:
             title = 'Rooster van {0} - Infowebviewer'.format(result['name'])
-            h2 = 'Rooster van {0} ({1}, {2})'.format(result['name'], result['llnr'], result['group'])
+            h2 = '{0} ({1}, {2})'.format(result['name'], result['llnr'], result['group'])
             return render_template('timetable.html', ref=ref, id_user=id_user, week=week, title=title, timetable=nice_table, h2=h2, group=group)
 
         else:

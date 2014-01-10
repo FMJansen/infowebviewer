@@ -31,6 +31,7 @@ h1 {
 h2 {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 300;
+  font-size: 1.4em;
   margin: 1em 30px 0.5em;
   text-align: center; }
 
@@ -75,10 +76,41 @@ header#main {
     float: left;
     max-width: 32px;
     font-size: 0.9em; }
+  header#main #togglesearch {
+    width: 55px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer; }
+    header#main #togglesearch div {
+      font-size: 1.4em;
+      display: block;
+      width: 0.4em;
+      height: 0.4em;
+      border: 0.1em solid white;
+      position: relative;
+      border-radius: 0.35em;
+      margin: 0.95em auto; }
+      header#main #togglesearch div:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: -0.25em;
+        bottom: -0.2em;
+        border-width: 0;
+        background: white;
+        width: 0.25em;
+        height: 0.08em;
+        transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg); }
 
 /*AUTOCOMPLETION*/
 input#search {
-  margin: 2em 5% 0;
+  margin: 1em 5% 0;
   width: 90%;
   box-sizing: border-box;
   -o-box-sizing: border-box;
@@ -117,9 +149,12 @@ pre {
   white-space: normal; }
 
 /*TIMETABLE*/
+#centerbutton {
+  text-align: center; }
+
 button#save_user, button#remove_user {
   margin: 1em auto 0;
-  display: block;
+  /*  display: block;*/
   background: #013d7d;
   color: white;
   border-color: #01244a; }
@@ -205,6 +240,8 @@ footer {
     padding: 1.4em 0.9em 0; }
   header#main input[type=number], header#main button {
     margin: 1em 0 0; }
+  header#main #togglesearch {
+    display: none; }
 
   section, ul#acs {
     margin: 0 2% 2em; }
