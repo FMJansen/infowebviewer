@@ -141,7 +141,8 @@ section {
     margin-top: 2em; }
 
 p {
-  padding: 0 0.72em; }
+  padding: 0 0.72em;
+  word-wrap: break-word; }
 
 pre {
   font-family: "Source Sans Pro", sans-serif;
