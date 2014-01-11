@@ -252,15 +252,6 @@ footer {
       margin-top: 2em; }
 
   section#timetable {
-    width: 96%;
-    overflow-x: auto; }
-    section#timetable > table {
-      min-width: 600px; }
-      section#timetable > table table {
-        width: 100% !important; }
+    width: 96%; }
     section#timetable .obs {
-      display: inline-block; }
-
-  table {
-    width: auto;
-    margin: auto; } }
+      display: inline-block; } }
