@@ -36,14 +36,16 @@
   <body>
 
     <header id="main">
-      <h1>
-        <a href="/">Rooster</a>
-      </h1>
-      <span>Weeknr. </span>
-      <input type="number" min="1" max="53" name="week" placeholder="Weeknr" value="{{ week }}">
-      <button type="submit" id="change_week">Ga</button>
-      {% block header %}
-      {% endblock %}
+      <div id="limit">
+        <h1>
+          <a href="/">Rooster</a>
+        </h1>
+        <span>Weeknr. </span>
+        <input type="number" min="1" max="53" name="week" placeholder="Weeknr" value="{{ week }}">
+        <button type="submit" id="change_week">Ga</button>
+        {% block header %}
+        {% endblock %}
+      </div>
     </header>
 
     <div id="page">

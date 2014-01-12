@@ -115,10 +115,10 @@ function openTab(day) {
   var currentDay = currentDate.getDay();
   var currentHour = currentDate.getHours();
   $('nav#tabswitcher a').removeClass('focused');
-  $('table.day').hide();
+  $('table.day').removeClass('focused');;
 
   if(day) {
-    $('table.day' + day).show();
+    $('table.day' + day).addClass('focused');
     $('a[href=' + day + ']').addClass('focused');
   } else {
     if(currentHour > 16) {
@@ -128,25 +128,25 @@ function openTab(day) {
       case 6:
       case 0:
       case 1:
-        $('table.day#mon').show();
+        $('table.day#mon').addClass('focused');
         $('nav#tabswitcher a[href=#mon]').addClass('focused');
         console.log(currentDay);
         break;
       case 2:
-        $('table.day#tue').show();
+        $('table.day#tue').addClass('focused');
         $('nav#tabswitcher a[href=#tue]').addClass('focused');
         console.log(currentDay);
         break;
       case 3:
-        $('table.day#wed').show();
+        $('table.day#wed').addClass('focused');
         $('nav#tabswitcher a[href=#wed]').addClass('focused');
         break;
       case 4:
-        $('table.day#thu').show();
+        $('table.day#thu').addClass('focused');
         $('nav#tabswitcher a[href=#thu]').addClass('focused');
         break;
       case 5:
-        $('table.day#fri').show();
+        $('table.day#fri').addClass('focused');
         $('nav#tabswitcher a[href=#fri]').addClass('focused');
         break;
     }
@@ -212,9 +212,9 @@ $(document).ready(function() {
     openTab($(this).attr('href'));
   });
 
-  $('#searchname').hide();
+  $('#searchname').addClass('hidden');
   $('#togglesearch').click(function() {
-    $('#searchname').slideToggle('fast');
+    $('#searchname').toggleClass('hidden');
   });
 
 });

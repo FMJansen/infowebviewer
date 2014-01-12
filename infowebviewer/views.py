@@ -68,7 +68,7 @@ def make_page(ref, id_user, week, group):
             thu.table.contents[i].append(tds[6])
             fri.table.contents[i].append(tds[7])
             
-        nice_table = '{0}{1}{2}{3}{4}{5}{6}'.format(first_div, secnd_div, mon, tue, wed, thu, fri)
+        nice_table = '{0}{1}<div id="daycontainer">{2}{3}{4}{5}{6}</div>'.format(first_div, secnd_div, mon, tue, wed, thu, fri)
         return nice_table
         
     

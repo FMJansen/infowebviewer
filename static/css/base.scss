@@ -164,6 +164,16 @@ header#main {
 
 
 /*AUTOCOMPLETION*/
+div#searchname {
+  max-height: 70px;
+  overflow: hidden;
+  @include prefixify(transition, max-height 200ms ease-out);
+  
+  &.hidden {
+    max-height: 0;
+  }
+}
+
 input#search {
   margin: 1em 5% 0;
   width: 90%;
@@ -260,7 +270,7 @@ section#timetable {
 
 div#days{
   position: relative;
-  height: 702px;
+  height: 711px;
   
   div#numbers {
     position: absolute;
@@ -284,10 +294,16 @@ div#days{
     padding-right: 38px;
     width: 100%;
     border-spacing: 0;
+    display: none;
     
     > tbody > tr > td {
       height: 76px;
       padding-left: 0.5em;
+      border-bottom: 1px solid #eee;
+    }
+    
+    &.focused {
+      display: table;
     }
   }
   
@@ -297,7 +313,7 @@ div#days{
 }
 
 tr.current {
-  background: white;
+  background: transparentize(lighten($maincolor, 15%), 0.85);
   width: 100%;
 }
 
@@ -328,14 +344,10 @@ tr.current {
 
 footer {
   text-align: center;
+  margin: 2em 0;
 }
 
 @media (min-width: 700px) {
-  input#search {
-    margin: 2em 2% 0;
-    width: 96%;
-  }
-
   header#main {
     h1 {
       margin: 0.7em;
@@ -352,6 +364,20 @@ footer {
     }
   }
 
+  div#page, div#limit {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  div#searchname.hidden {
+    max-height: none;
+  }
+  
+  input#search {
+    margin: 2% 2% 0;
+    width: 96%;
+  }
+
   section, ul#acs {
     margin: 0 2% 2em;
     &:nth-child(1) {
@@ -362,8 +388,32 @@ footer {
   section#timetable {
     width: 96%;
 
-    .obs {
-      display: inline-block;
+    nav {
+      display: none;
+    }
+    
+    div#daycontainer {
+      position: absolute;
+      padding-left: 37px;
+      @include prefixify(box-sizing, border-box);
+      top: 0;
+      width: 100%;
+    }
+    
+    table.day {
+      position: relative;
+      float: left;
+      width: 20%;
+      padding: 0;
+      left: 0;
+      
+      &:not(.focused) {
+        display: table;
+      }
+      
+      > tbody > tr > td {
+        border-left: 1px solid #eee;
+      }
     }
   }
 }
