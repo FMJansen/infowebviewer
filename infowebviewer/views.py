@@ -93,7 +93,15 @@ def timetable(ref,group,id_user,week):
 
 @app.route('/<ref>/<group>/<id_user>/')
 def timetable_no_week(ref,group,id_user):
-    week = int(datetime.date.today().isocalendar()[1])
+    today = datetime.date.today()
+    iso_cal = today.isocalendar()
+
+    # If it's Saturday or Sunday, view next week.
+    if iso_cal[2] > 5:
+        week = (today + datetime.timedelta(days=8 - iso_cal[2])).isocalendar()[1]
+    else:
+        week = iso_cal[1]
+
     return make_page(ref, id_user, week, group)
 
 
