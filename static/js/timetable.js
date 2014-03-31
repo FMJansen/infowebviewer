@@ -167,6 +167,28 @@ function placeCookie(group, user_id, ref) {
 }
 
 
+equalheight = function(container, overall){
+  var currentTallest = 0,
+      rowDivs = new Array(),
+      $el,
+      topPosition = 0;
+
+  $(container).each(function() {
+    $el = $(this);
+    $($el).height('auto')
+    rowDivs.push($el);
+    currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+    for(currentDiv = 0; currentDiv < rowDivs.length; currentDiv++){
+      rowDivs[currentDiv].height(currentTallest);
+      console.log(currentTallest);
+    }
+  });
+
+  $(overall).height(9 * currentTallest);
+}
+
+
+
 $(document).ready(function() {
   $('button#change_week').click(function() {
     otherWeek($(this).prev());
@@ -216,6 +238,13 @@ $(document).ready(function() {
   $('#togglesearch').click(function() {
     $('#searchname').toggleClass('hidden');
   });
+
+});
+
+
+$(window).load(function() {
+
+  equalheight('#numbers > div, .day > tbody > tr', 'div#days');
 
 });
 

@@ -271,7 +271,7 @@ section#timetable {
 div#days{
   position: relative;
   height: 711px;
-  
+
   div#numbers {
     position: absolute;
     left: 0;
@@ -280,10 +280,13 @@ div#days{
     font-weight: bold;
     color: $maincolor;
     border-right: 1px solid #eee;
-    
+
     div {
       height: 58px;
-      padding: 20px 10px 0;
+      padding: 0 10px;
+      line-height: 220%;
+      border-bottom: 1px solid #eee;
+      margin-bottom: -1px;
     }
   }
 
@@ -395,7 +398,7 @@ footer {
     nav {
       display: none;
     }
-    
+
     div#daycontainer {
       position: absolute;
       padding-left: 37px;
@@ -403,7 +406,11 @@ footer {
       top: 0;
       width: 100%;
     }
-    
+
+    div#numbers {
+      border-color: white;
+    }
+
     table.day {
       position: relative;
       float: left;
