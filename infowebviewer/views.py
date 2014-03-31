@@ -11,6 +11,18 @@ from infowebviewer import app, db
 
 INFOWEB = 'http://www.cygnusgymnasium.nl/ftp_cg/roosters/infoweb/'
 
+def get_week():
+    today = datetime.date.today()
+    iso_cal = today.isocalendar()
+
+    # If it's Saturday or Sunday, view next week.
+    if iso_cal[2] > 5:
+        week = (today + datetime.timedelta(days=8 - iso_cal[2])).isocalendar()[1]
+    else:
+        week = iso_cal[1]
+
+    return week
+
 def get_timetable(ref,id_user,week,group):
     url_type = int(ref)
     timetable_url = INFOWEB + 'index.php?ref={}'.format(url_type)
@@ -109,14 +121,14 @@ def make_page(ref, id_user, week, group):
 
 @app.route('/')
 def index():
-    week = str(datetime.date.today().isocalendar()[1])
+    week = get_week()
     title = 'Rooster Cygnus'
     return render_template('index.html', title=title, week=week)
 
 
 @app.route('/over/')
 def over():
-    week = str(datetime.date.today().isocalendar()[1])
+    week = get_week()
     title = 'Over - Infowebviewer'
 
     return render_template('over.html', title=title, week=week)
@@ -129,15 +141,7 @@ def timetable(ref,group,id_user,week):
 
 @app.route('/<ref>/<group>/<id_user>/')
 def timetable_no_week(ref,group,id_user):
-    today = datetime.date.today()
-    iso_cal = today.isocalendar()
-
-    # If it's Saturday or Sunday, view next week.
-    if iso_cal[2] > 5:
-        week = (today + datetime.timedelta(days=8 - iso_cal[2])).isocalendar()[1]
-    else:
-        week = iso_cal[1]
-
+    week = get_week()
     return make_page(ref, id_user, week, group)
 
 
@@ -187,7 +191,7 @@ def fetch():
 
 @app.errorhandler(404)
 def error(e):
-    week = str(datetime.date.today().isocalendar()[1])
+    week = get_week()
     error_number = '404'
     title = '404 Niet gevonden - Infowebviewer'
     return render_template('error.html', error_number=e, title=title, week=week)
