@@ -244,6 +244,9 @@ tr.current {
 .informatie {
   background: url(/static/img/informatie.gif) no-repeat; }
 
+#hoverinfo {
+  z-index: 2; }
+
 footer {
   text-align: center;
   margin: 2em 0; }

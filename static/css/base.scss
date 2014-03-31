@@ -341,6 +341,10 @@ tr.current {
   background: url(/static/img/informatie.gif) no-repeat;
 }
 
+#hoverinfo {
+  z-index: 2;
+}
+
 
 footer {
   text-align: center;
